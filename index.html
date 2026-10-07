@@ -128,9 +128,9 @@
         // false = 3-month beta: Free + Founder are live, Student/Pro/Cloud are shown dimmed as "Launches with V1.0".
         // true  = V1.0 launch: every plan is live.
         const SHOW_ALL_PLANS = false;
-        // Founder seats. Update FOUNDER_SOLD from your real Lemon Squeezy sales count. Never invent it.
-        const FOUNDER_TOTAL = 100;
-        const FOUNDER_SOLD = 0;
+        // Founder offer. Set FOUNDERS_OPEN to false the day you sell the 100th seat or the beta ends.
+        // The cap is real, so honor it: after 100 Founders the price must go up.
+        const FOUNDERS_OPEN = true;
         // Beta installer. Paste the direct link to your signed installer (for example a GitHub release asset).
         // While this is empty, the download button tells visitors the installer is coming and points them to the waitlist.
         const BETA_DOWNLOAD_URL = "";
@@ -246,48 +246,46 @@
                           action === 'approved' ? 'The terminal command was authorized.' : 'The terminal command was safely blocked.');
             };
 
-            const founderLeft = Math.max(FOUNDER_TOTAL - FOUNDER_SOLD, 0);
-            const founderPct = Math.min(Math.round((FOUNDER_SOLD / FOUNDER_TOTAL) * 100), 100);
-            const founderSoldOut = founderLeft === 0;
-
             const founderCard = (
                 <div className="p-6 xl:p-8 rounded-2xl ring-1 ring-[#4F7CFF]/50 shadow-[0_0_70px_-20px_rgba(79,124,255,0.55)] bg-aesSurface group flex flex-col h-full relative overflow-hidden">
-                    <h3 className="font-serif text-lg xl:text-2xl mb-1 italic text-aesText">Founder's Lifetime</h3>
-                    <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2 font-medium">
-                        {founderSoldOut ? 'Founder seats sold out' : `${founderLeft} of ${FOUNDER_TOTAL} seats left`}
+                    <p className="font-sans text-[10px] xl:text-xs tracking-wide text-[#4F7CFF] mb-3 font-medium">
+                        Limited to the first 100 Founders
+                    </p>
+                    <h3 className="font-serif text-xl xl:text-3xl mb-3 italic text-aesText">Founder's Lifetime</h3>
+
+                    <div className="font-serif text-4xl xl:text-5xl mb-1 text-aesText">
+                        $99<span className="text-sm font-sans font-light opacity-60 ml-2">once, forever</span>
+                    </div>
+                    <p className="font-sans text-xs text-aesMuted mb-6">Then $129 for the next Founders. Never this low again.</p>
+
+                    <p className="font-serif text-lg xl:text-xl leading-snug text-aesText mb-6">
+                        Pays for itself in about 8 months of Pro. After that, it's free for life.
                     </p>
 
-                    <div className="font-serif text-4xl xl:text-5xl mb-4 md:mb-6 text-aesText">
-                        $99<span className="text-sm font-sans font-light opacity-60 ml-2">one-time</span>
-                    </div>
-
-                    <div className="w-full bg-aesBorder h-1 md:h-1.5 rounded-full mb-2 md:mb-3 overflow-hidden">
-                        <div className="bg-[#4F7CFF] h-full" style={{ width: founderPct + '%' }} />
-                    </div>
-                    <p className="font-sans text-[10px] text-aesMuted mb-6">
-                        The price rises to $129 after the first 100 seats.
-                    </p>
-
-                    <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                        <li><span className="text-aesSuccess">✓</span> Pro features for life, including future Pro features</li>
+                    <ul className="space-y-2 md:space-y-3 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
+                        <li><span className="text-aesSuccess">✓</span> Pro features for life, including every future Pro feature</li>
                         <li><span className="text-aesSuccess">✓</span> No subscription, ever</li>
-                        <li><span className="text-aesSuccess">✓</span> Early beta access</li>
+                        <li><span className="text-aesSuccess">✓</span> Early beta access and a say in what we build next</li>
                         <li><span className="text-aesSuccess">✓</span> Priority support channel</li>
-                        <li><span className="text-aesSuccess">✓</span> 30-day refund</li>
+                        <li><span className="text-aesSuccess">✓</span> 30-day refund, no questions</li>
                     </ul>
-                    {founderSoldOut ? (
-                        <p className="w-full py-3 border border-aesBorder text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest text-center mt-auto">
-                            Sold out. Join the waitlist for the next price.
-                        </p>
-                    ) : (
+
+                    <p className="font-sans text-[11px] text-aesMuted mb-4 leading-relaxed">
+                        Founder pricing exists only during the beta. When it ends, Pro becomes a subscription.
+                    </p>
+                    {FOUNDERS_OPEN ? (
                         <a
                             href="https://aurexos.lemonsqueezy.com/checkout/buy/52b5e3a7-0aa3-45de-892c-d3eb38ac83d6"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full py-3.5 md:py-3 rounded-full bg-aesInvBase text-aesInvText hover:opacity-80 text-[9px] xl:text-[10px] uppercase tracking-widest transition-opacity mt-auto font-bold text-center block"
+                            className="w-full py-3.5 md:py-3 rounded-full bg-aesInvBase text-aesInvText hover:opacity-80 text-[10px] xl:text-xs uppercase tracking-widest transition-opacity mt-auto font-bold text-center block"
                         >
-                            Become a Founder
+                            Claim Founder Access
                         </a>
+                    ) : (
+                        <p className="w-full py-3 border border-aesBorder rounded-full text-aesMuted text-[10px] xl:text-xs uppercase tracking-widest text-center mt-auto">
+                            Founder seats are closed. Join the waitlist below.
+                        </p>
                     )}
                 </div>
             );
@@ -641,8 +639,8 @@
                                         </span>
                                         <span className="font-light opacity-90 block md:inline mt-1 md:mt-0">
                                             {SHOW_ALL_PLANS
-                                                ? 'The first 100 seats are $99. The price goes up as seats sell.'
-                                                : 'Download the beta free and bring your own API keys. Student and Pro subscriptions launch after the beta. The first 100 Founder seats are $99.'}
+                                                ? 'The first 100 Founders lock in $99. The price rises after that.'
+                                                : 'Download the beta free and bring your own API keys. Founder pricing ends with the beta: the first 100 Founders lock in $99 for life, then the price rises.'}
                                         </span>
                                     </p>
                                 </div>
@@ -699,10 +697,14 @@
                                     <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">BYOK</p>
                                     <div className="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5">$0</div>
                                     <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{SHOW_ALL_PLANS ? 'free forever' : 'free for the 3-month beta'}</p>
+                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">Everything you need to try Aurex with your own API keys.</p>
                                     <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Basic Agent Chat</li>
-                                        <li><span className="text-aesSuccess">✓</span> The Trust Layer</li>
-                                        <li><span className="text-aesSuccess">✓</span> Terminal Cookbook</li>
+                                        <li><span className="text-aesSuccess">✓</span> Agent mode and Chat mode in one window</li>
+                                        <li><span className="text-aesSuccess">✓</span> Bring your own API keys, with the cost of every chat shown live</li>
+                                        <li><span className="text-aesSuccess">✓</span> Drag and drop files and folders into a conversation</li>
+                                        <li><span className="text-aesSuccess">✓</span> Search all your conversations with Ctrl+K</li>
+                                        <li><span className="text-aesSuccess">✓</span> The Trust Layer: approve every command and file change</li>
+                                        <li><span className="text-aesSuccess">✓</span> Terminal Cookbook for common shell tasks</li>
                                         <li className="opacity-40"><span className="text-aesError">✕</span> No Obsidian Sync</li>
                                         <li className="opacity-40"><span className="text-aesError">✕</span> No Email/Cal Parsing</li>
                                     </ul>
@@ -727,11 +729,14 @@
                                         ${billing === 'monthly' ? '6' : '39'}<span className="text-sm font-sans font-light opacity-60">/{billing === 'monthly' ? 'mo' : 'yr'}</span>
                                     </div>
                                     <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{billing === 'monthly' ? 'billed monthly' : 'about $3.25 a month'}</p>
+                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">For coursework: plan your study time, turn notes into flashcards, and export slides.</p>
                                     <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Student Planner API</li>
-                                        <li><span className="text-aesSuccess">✓</span> Auto-Flashcards</li>
-                                        <li><span className="text-aesSuccess">✓</span> PDF / PPTX Slide Export</li>
-                                        <li><span className="text-aesSuccess">✓</span> Deep Research Tool</li>
+                                        <li><span className="text-aesSuccess">✓</span> Everything in Aurex Beta</li>
+                                        <li><span className="text-aesSuccess">✓</span> Student Planner to organize classes and study time</li>
+                                        <li><span className="text-aesSuccess">✓</span> Auto-flashcards from your notes and PDFs</li>
+                                        <li><span className="text-aesSuccess">✓</span> Export notes as PDF or PPTX slides</li>
+                                        <li><span className="text-aesSuccess">✓</span> Deep Research tool for sources and summaries</li>
+                                        <li><span className="text-aesSuccess">✓</span> Library and Notes for your course material</li>
                                         <li className="opacity-40"><span className="text-aesError">✕</span> No Task Scheduler</li>
                                     </ul>
                                     {SHOW_ALL_PLANS ? (
@@ -762,12 +767,15 @@
                                         ${billing === 'monthly' ? '12' : '79'}<span className="text-sm font-sans font-light opacity-60">/{billing === 'monthly' ? 'mo' : 'yr'}</span>
                                     </div>
                                     <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{billing === 'monthly' ? 'billed monthly' : 'about $6.58 a month'}</p>
+                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">For developers and professionals who want Aurex working across files, mail and calendar.</p>
                                     <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Live Obsidian Vault Sync</li>
-                                        <li><span className="text-aesSuccess">✓</span> CalDAV & IMAP Sync</li>
-                                        <li><span className="text-aesSuccess">✓</span> Model Fabric Failovers</li>
-                                        <li><span className="text-aesSuccess">✓</span> Context Compactor</li>
-                                        <li><span className="text-aesSuccess">✓</span> Background Scheduler</li>
+                                        <li><span className="text-aesSuccess">✓</span> Everything in Student</li>
+                                        <li><span className="text-aesSuccess">✓</span> Live Obsidian vault sync with a visual knowledge graph</li>
+                                        <li><span className="text-aesSuccess">✓</span> Email parsing over IMAP and two-way calendar sync over CalDAV</li>
+                                        <li><span className="text-aesSuccess">✓</span> Contacts syncing</li>
+                                        <li><span className="text-aesSuccess">✓</span> Background Scheduler for recurring tasks</li>
+                                        <li><span className="text-aesSuccess">✓</span> Model Fabric failover when a provider hits a billing limit</li>
+                                        <li><span className="text-aesSuccess">✓</span> Context Compactor keeps long sessions from overflowing</li>
                                     </ul>
                                     {SHOW_ALL_PLANS ? (
                                         /* The Lemon Squeezy product behind this link must be set to $12/mo and $79/yr */
@@ -794,9 +802,12 @@
                                     <h3 className="font-serif text-lg xl:text-xl mb-1 text-aesText">Pro Cloud</h3>
                                     <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">No API Key Req.</p>
                                     <div className="font-serif text-xl xl:text-2xl mb-4 md:mb-6 text-aesMuted mt-3 md:mt-5">Price to be announced</div>
+                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">Aurex without the setup: no API keys to find or manage.</p>
                                     <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Zero setup required</li>
-                                        <li><span className="text-aesSuccess">✓</span> Includes all Pro features</li>
+                                        <li><span className="text-aesSuccess">✓</span> Zero setup, no API key needed</li>
+                                        <li><span className="text-aesSuccess">✓</span> Includes every Pro feature</li>
+                                        <li><span className="text-aesSuccess">✓</span> Usage limits and price announced before launch</li>
+                                        <li><span className="text-aesSuccess">✓</span> Limited capacity, so the waitlist opens first</li>
                                     </ul>
                                     {SHOW_ALL_PLANS && (
                                         <div className="mt-auto pt-4 border-t border-aesBorder">
@@ -814,7 +825,7 @@
 
                             <p className="font-sans font-light text-xs text-aesMuted text-center leading-relaxed mt-8 max-w-xl mx-auto">
                                 {SHOW_ALL_PLANS
-                                    ? 'Your AI provider bills API usage directly, not Aurex. The cost meter shows what each message costs. Founder\'s Lifetime goes to $129 after 100 seats.'
+                                    ? 'Your AI provider bills API usage directly, not Aurex. The cost meter shows what each message costs. Founder\'s Lifetime goes to $129 after the first 100 Founders.'
                                     : 'The beta runs for 3 months. Student and Pro subscriptions launch afterward, and Founders keep Pro features for life. Your AI provider bills API usage directly, and the cost meter shows what each message costs.'}
                             </p>
                         </section>
