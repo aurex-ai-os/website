@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aurex - Cognitive Operating System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurex: Private AI Desktop App With Your Own API Keys (BYOK)</title>
     <!-- Custom Aurex Favicon -->
     <link rel="icon" type="image/jpeg" href="./aurex_favicon.jpeg">
+    <meta name="description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.">
+    <link rel="canonical" href="https://YOUR-DOMAIN/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0B0B0D">
+    <meta property="og:type" content="website"><meta property="og:site_name" content="Aurex">
+    <meta property="og:title" content="Aurex: Private AI Desktop App With Your Own API Keys">
+    <meta property="og:description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.">
+    <meta property="og:url" content="https://YOUR-DOMAIN/"><meta property="og:image" content="https://YOUR-DOMAIN/aurex_hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aurex: Private AI Desktop App With Your Own API Keys">
+    <meta name="twitter:description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta."><meta name="twitter:image" content="https://YOUR-DOMAIN/aurex_hero.jpg">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://YOUR-DOMAIN/#org","name":"Aurex","url":"https://YOUR-DOMAIN/","logo":"https://YOUR-DOMAIN/aurex_favicon.jpeg","sameAs":["https://instagram.com/aurex_ai_os"]},
+{"@type":"WebSite","@id":"https://YOUR-DOMAIN/#site","url":"https://YOUR-DOMAIN/","name":"Aurex","publisher":{"@id":"https://YOUR-DOMAIN/#org"}},
+{"@type":"SoftwareApplication","name":"Aurex","applicationCategory":"DeveloperApplication","operatingSystem":"Windows","description":"Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.","url":"https://YOUR-DOMAIN/","image":"https://YOUR-DOMAIN/aurex_hero.jpg","publisher":{"@id":"https://YOUR-DOMAIN/#org"},"offers":[{"@type":"Offer","name":"Free beta","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Founder's Lifetime","price":"99","priceCurrency":"USD"}]}]}</script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- Framer Motion -->
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
@@ -92,7 +107,17 @@
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root"><main style="max-width:760px;margin:0 auto;padding:48px 24px;font-family:Inter,system-ui,sans-serif;color:#EDEDF0;background:#0B0B0D;min-height:100vh;line-height:1.6">
+<h1>Aurex: a private AI desktop app that uses your own API keys</h1>
+<p>Aurex is a local-first AI workspace for your computer. Use OpenAI, Anthropic and other models with your own API keys, chat with your own files, and approve every command and file change the agent makes. Free 3-month beta.</p>
+<h2>Features</h2><ul>
+<li>Model Fabric: routes tasks to local or cloud models and fails over when a provider hits a billing limit</li>
+<li>Live cost shown for every chat</li><li>Agent mode and Chat mode</li>
+<li>Obsidian vault sync with a visual knowledge graph</li><li>Email (IMAP) and calendar (CalDAV) integration, contacts sync, task scheduling</li>
+<li>Terminal Cookbook and secure shell execution</li><li>Trust Layer: visual diff and approval before destructive actions</li>
+<li>Context Compactor for long sessions</li><li>Study tools: flashcards, deep research, PDF and PPTX export</li></ul>
+<h2>Pricing</h2><p>Free beta for 3 months. Founder's Lifetime: $99 one-time for the first 100 Founders. Student and Pro subscriptions launch with version 1.0. You pay your AI provider directly for API usage.</p>
+<p><a href="about.html" style="color:#8aa4ff">About</a> · <a href="privacy.html" style="color:#8aa4ff">Privacy</a> · <a href="terms.html" style="color:#8aa4ff">Terms</a> · <a href="refund.html" style="color:#8aa4ff">Refunds</a> · <a href="contact.html" style="color:#8aa4ff">Contact</a></p></main></div>
     <script type="text/babel">
         const { useState, useEffect } = React;
         const { motion, AnimatePresence } = window.Motion;
@@ -137,6 +162,26 @@
         const BETA_PLATFORM = "Windows";
         // Real waitlist size from your Supabase table. Leave null to hide the number. Never estimate it.
         const WAITLIST_COUNT = null;
+
+        const BUILT_BY = "an independent developer";  // shown in the footer. Use a brand or company name if you have one
+        const AVAILABLE = [
+            { title: "Models and cost", blurb: "Use the AI you choose and see what it costs.", items: ["Agent mode and Chat mode in one window", "Bring your own API keys, no middleman subscription", "Model Fabric routes tasks to local or cloud models", "Detects billing limits and fails over automatically", "Live cost shown for every chat"] },
+            { title: "Your knowledge", blurb: "Everything you know, searchable and connected.", items: ["Drag and drop files and folders into a chat", "Ctrl+K search across all conversations", "Library and Notes for your material", "Obsidian vault sync using ChromaDB similarity", "Interactive graph with suggested ghost links", "Context Compactor keeps long sessions sharp"] },
+            { title: "Workspace", blurb: "Aurex works with your day, not just a chat box.", items: ["IMAP email parsing", "CalDAV two-way calendar scheduling", "Contacts syncing", "Tasks and automated Task Scheduler", "Background Scheduler for recurring work"] },
+            { title: "Developer tools", blurb: "Run and review code with a seat belt on.", items: ["Secure shell execution", "Terminal Cookbook and Python cookbooks", "Debug Code and Code Review helpers", "Visual diffs for proposed changes"] },
+            { title: "Study", blurb: "Turn material into something you can learn from.", items: ["Student Planner", "Auto-generated flashcards", "Explain Concept for hard topics", "Deep Research tool", "Export to PDF and PPTX slides"] },
+            { title: "Trust Layer", blurb: "You stay in control of what the agent does.", items: ["Tool policy engine validates domains", "Pauses with a visual diff before destructive actions", "Nothing risky runs until you approve", "Your project history stays yours"] }
+        ];
+        const ROADMAP = [
+            { v: "Beta", t: "Free-tier resilience and safety", i: "Auto-continue and resume after rate limits, secret scrubber, Leak Shield, Privacy Firewall log, Git rollback, Compare Mode, Debate Arena" },
+            { v: "V1.0", t: "Public launch", i: "Spaced repetition, Study From This, course workspaces, basic Flight Recorder timeline, seat transfer" },
+            { v: "V1.1", t: "Savings", i: "Savings Report, cost preview before big prompts, CSV cost export, prompt library" },
+            { v: "V1.2", t: "Student depth", i: "Mistake book, mastery tracking, study planner, mock exams, Process Proof report" },
+            { v: "V1.3", t: "Agent safety", i: "Full Flight Recorder with rollback, Loop Guard, Project Builder, Mac and Linux builds" },
+            { v: "V1.5", t: "Smart layer", i: "Cascade Router, Token Shield, Reversible Redaction, Proof Mode, deep research workbench" },
+            { v: "V2.0", t: "Memory and automation", i: "Local memory you can edit, Watch Folders, MCP tools with permission prompts, Undo Everything" },
+            { v: "V2.5", t: "Teams", i: "Shared workspaces, admin controls, usage reports, optional encrypted sync" }
+        ];
 
         const App = () => {
             const [isDark, setIsDark] = useState(false);
@@ -537,6 +582,47 @@
                             </motion.div>
                         </section>
 
+                        <section id="everything" className="mt-32 md:mt-56 scroll-mt-32">
+                            <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 border-b border-aesBorder pb-8">
+                                <h2 className="text-3xl md:text-5xl font-serif font-light text-aesText">Everything inside Aurex</h2>
+                                <p className="font-sans text-aesMuted font-light max-w-md mt-4 md:mt-0 text-base md:text-lg">What you get in the beta today, and what is planned next.</p>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {AVAILABLE.map((g) => (
+                                    <div key={g.title} className="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface">
+                                        <h3 className="font-serif text-xl md:text-2xl mb-2 text-aesText">{g.title}</h3>
+                                        <p className="font-sans font-light text-sm text-aesMuted mb-5">{g.blurb}</p>
+                                        <ul className="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted">
+                                            {g.items.map((it) => (<li key={it}><span className="text-aesSuccess">✓</span> {it}</li>))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <h3 className="font-serif text-2xl md:text-3xl mt-20 mb-3 text-aesText">Roadmap</h3>
+                            <p className="font-sans font-light text-sm text-aesMuted mb-8 max-w-2xl">Planned, not yet released. Scope and timing can change as we learn from beta users.</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {ROADMAP.map((r) => (
+                                    <div key={r.v} className="p-5 md:p-6 rounded-2xl border border-aesBorder">
+                                        <div className="flex items-baseline gap-3 mb-2">
+                                            <span className="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">{r.v}</span>
+                                            <span className="font-serif text-lg text-aesText">{r.t}</span>
+                                        </div>
+                                        <p className="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">{r.i}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
+                                {[["Your keys stay with you", "API keys live on your computer and your prompts go straight to your chosen provider."], ["Secure payments", "Checkout is handled by Lemon Squeezy, a payment provider that also manages sales tax."], ["Clear refunds", "30-day refund on Founder purchases. See the refund policy."], ["A real person to ask", "Send a message and a human replies. Use the contact form in the footer."]].map(([t, d]) => (
+                                    <div key={t} className="p-5 rounded-2xl border border-aesBorder bg-aesSurface">
+                                        <h4 className="font-serif text-base text-aesText mb-2">{t}</h4>
+                                        <p className="font-sans font-light text-xs text-aesMuted leading-relaxed">{d}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
                         <motion.section 
                             id="security"
                             initial={{ opacity: 0, y: 50 }}
@@ -874,14 +960,25 @@
                     </main>
 
                     {/* Footer */}
-                    <footer className="w-full py-10 md:py-12 px-6 md:px-8 border-t border-aesBorder mt-16 md:mt-20 flex flex-col md:flex-row items-center justify-between text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-aesMuted gap-6 md:gap-0">
-                        <div>© 2026 Aurex AI</div>
-                        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-                            <a href="https://instagram.com/aurex_ai_os" target="_blank" rel="noopener noreferrer" className="hover:text-aesText transition-colors">Instagram</a>
-                            <a href="#" onClick={(e) => { e.preventDefault(); showToast('Redirecting', 'Opening Twitter...'); }} className="hover:text-aesText transition-colors">Twitter</a>
-                            <a href="#" onClick={(e) => { e.preventDefault(); showToast('Redirecting', 'Opening GitHub Repository...'); }} className="hover:text-aesText transition-colors">GitHub</a>
-                            <a href="#" onClick={(e) => { e.preventDefault(); showToast('Privacy Policy', 'Opening Privacy Policy documentation...'); }} className="hover:text-aesText transition-colors">Privacy</a>
+                    <footer className="w-full py-12 md:py-16 px-6 md:px-8 border-t border-aesBorder mt-16 md:mt-20 font-sans text-aesMuted text-xs">
+                        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div className="col-span-2 md:col-span-1">
+                                <div className="font-serif text-lg text-aesText mb-2">Aurex</div>
+                                <p className="font-light leading-relaxed mb-3">A private AI desktop workspace. Your keys, your files, your machine.</p>
+                                <p className="font-light">Built by {BUILT_BY}</p>
+                            </div>
+                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Product</span>
+                                <a href="#features" className="hover:text-aesText">Features</a><a href="#everything" className="hover:text-aesText">Roadmap</a><a href="#pricing" className="hover:text-aesText">Pricing</a>
+                            </div>
+                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Company</span>
+                                <a href="about.html" className="hover:text-aesText">About</a><a href="contact.html" className="hover:text-aesText">Contact</a>
+                                <a href="https://instagram.com/aurex_ai_os" target="_blank" rel="noopener noreferrer" className="hover:text-aesText">Instagram</a>
+                            </div>
+                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Legal</span>
+                                <a href="privacy.html" className="hover:text-aesText">Privacy Policy</a><a href="terms.html" className="hover:text-aesText">Terms of Service</a><a href="refund.html" className="hover:text-aesText">Refund Policy</a>
+                            </div>
                         </div>
+                        <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-aesBorder">© 2026 Aurex. All rights reserved.</div>
                     </footer>
                 </div>
             );
