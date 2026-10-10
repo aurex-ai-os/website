@@ -22,15 +22,18 @@
 {"@type":"WebSite","@id":"https://YOUR-DOMAIN/#site","url":"https://YOUR-DOMAIN/","name":"Aurex","publisher":{"@id":"https://YOUR-DOMAIN/#org"}},
 {"@type":"SoftwareApplication","name":"Aurex","applicationCategory":"DeveloperApplication","operatingSystem":"Windows","description":"Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.","url":"https://YOUR-DOMAIN/","image":"https://YOUR-DOMAIN/aurex_hero.jpg","publisher":{"@id":"https://YOUR-DOMAIN/#org"},"offers":[{"@type":"Offer","name":"Free beta","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Founder's Lifetime","price":"99","priceCurrency":"USD"}]}]}</script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script defer src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
     <!-- Framer Motion -->
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script defer src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap"></noscript>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preload" as="image" href="./aurex_hero_800.webp" imagesrcset="./aurex_hero_800.webp 800w, ./aurex_hero_1600.webp 1600w" imagesizes="(min-width: 1024px) 1024px, 100vw" fetchpriority="high">
     
     <script>
         tailwind.config = {
@@ -391,7 +394,8 @@
                                     animate={{ scale: 1, opacity: 1 }}
                                     exit={{ scale: 0.95, opacity: 0 }}
                                     transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                                    src="./aurex_hero.jpg" 
+                                    src="./aurex_hero_1600.webp" 
+                                    width="1600" height="865" decoding="async"
                                     alt="Aurex Interface Fullscreen" 
                                     className="w-auto h-auto max-w-full max-h-full rounded-sm shadow-2xl border border-white/10"
                                 />
@@ -531,8 +535,11 @@
                                 <motion.img 
                                     whileHover={{ scale: 1.01 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    src="./aurex_hero.jpg" 
-                                    alt="Aurex Interface" 
+                                    src="./aurex_hero_1600.webp" 
+                                    srcSet="./aurex_hero_800.webp 800w, ./aurex_hero_1600.webp 1600w"
+                                    sizes="(min-width: 1024px) 1024px, 100vw"
+                                    width="1600" height="865" fetchpriority="high" decoding="async"
+                                    alt="Aurex desktop app showing the chat window, cost meter and sidebar" 
                                     className="w-full h-auto object-contain cursor-zoom-in max-h-[80vh]"
                                     onClick={() => setLightboxOpen(true)}
                                 />
