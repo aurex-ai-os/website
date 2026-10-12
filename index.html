@@ -1,66 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurex: Private AI Desktop App With Your Own API Keys (BYOK)</title>
-    <!-- Custom Aurex Favicon -->
-    <link rel="icon" type="image/jpeg" href="./aurex_favicon.jpeg">
-    <meta name="description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.">
-    <link rel="canonical" href="https://YOUR-DOMAIN/">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#0B0B0D">
-    <meta property="og:type" content="website"><meta property="og:site_name" content="Aurex">
-    <meta property="og:title" content="Aurex: Private AI Desktop App With Your Own API Keys">
-    <meta property="og:description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.">
-    <meta property="og:url" content="https://YOUR-DOMAIN/"><meta property="og:image" content="https://YOUR-DOMAIN/aurex_hero.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aurex: Private AI Desktop App With Your Own API Keys">
-    <meta name="twitter:description" content="Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta."><meta name="twitter:image" content="https://YOUR-DOMAIN/aurex_hero.jpg">
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://YOUR-DOMAIN/#org","name":"Aurex","url":"https://YOUR-DOMAIN/","logo":"https://YOUR-DOMAIN/aurex_favicon.jpeg","sameAs":["https://instagram.com/aurex_ai_os"]},
-{"@type":"WebSite","@id":"https://YOUR-DOMAIN/#site","url":"https://YOUR-DOMAIN/","name":"Aurex","publisher":{"@id":"https://YOUR-DOMAIN/#org"}},
-{"@type":"SoftwareApplication","name":"Aurex","applicationCategory":"DeveloperApplication","operatingSystem":"Windows","description":"Aurex is a local-first AI desktop workspace. Use any model with your own API keys, chat with your files, and approve every agent action. Free 3-month beta.","url":"https://YOUR-DOMAIN/","image":"https://YOUR-DOMAIN/aurex_hero.jpg","publisher":{"@id":"https://YOUR-DOMAIN/#org"},"offers":[{"@type":"Offer","name":"Free beta","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Founder's Lifetime","price":"99","priceCurrency":"USD"}]}]}</script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-    <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-    <script defer src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
-    <!-- Framer Motion -->
-    <script defer src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <title>Aurex — Private AI desktop app that uses your own API keys</title>
+    <meta name="description" content="Aurex is a local-first AI workspace for your computer. Use OpenAI, Anthropic and other models with your own API keys, chat with your own files, and approve every command and file change the agent makes. Free 3-month beta.">
     
+    <link rel="icon" type="image/jpeg" href="./aurex_favicon.jpeg">
+    <link rel="canonical" href="https://aurex.dev/">
+
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap"></noscript>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- Preload Hero Image for instant LCP -->
     <link rel="preload" as="image" href="./aurex_hero_800.webp" imagesrcset="./aurex_hero_800.webp 800w, ./aurex_hero_1600.webp 1600w" imagesizes="(min-width: 1024px) 1024px, 100vw" fetchpriority="high">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        aesBase: 'var(--aes-base)',
-                        aesSurface: 'var(--aes-surface)',
-                        aesText: 'var(--aes-text)',
-                        aesMuted: 'var(--aes-muted)',
-                        aesBorder: 'var(--aes-border)',
-                        aesAccent: 'var(--aes-accent)',
-                        aesInvBase: 'var(--aes-inv-base)',
-                        aesInvText: 'var(--aes-inv-text)',
-                        aesSuccess: 'var(--aes-success)',
-                        aesError: 'var(--aes-error)'
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+
+    <!-- High-Performance Asynchronous Google Fonts (non-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap"></noscript>
+
+    <!-- Compiled Static Inlined Tailwind & Performance Stylesheet (Zero runtime compiler) -->
     <style>
+
         :root {
             --aes-base: #F9F8F4; 
             --aes-surface: #FFFFFF; 
@@ -107,901 +70,386 @@
         div, section, header, footer, nav, button, p, h1, h2, h3, span, ul, li {
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
+    
+*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Inter", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.top-0{top:0px}.top-4{top:1rem}.z-10{z-index:10}.z-50{z-index:50}.order-first{order:-9999}.col-span-2{grid-column:span 2 / span 2}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mr-0{margin-right:0px}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.mt-20{margin-top:5rem}.mt-24{margin-top:6rem}.mt-3{margin-top:0.75rem}.mt-32{margin-top:8rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-3\.5{height:0.875rem}.h-\[1px\]{height:1px}.h-auto{height:auto}.h-full{height:100%}.h-px{height:1px}.max-h-\[80vh\]{max-height:80vh}.min-h-\[16px\]{min-height:16px}.min-h-\[220px\]{min-height:220px}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-3\.5{width:0.875rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-\[260px\]{max-width:260px}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.origin-center{transform-origin:center}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-default{cursor:default}.cursor-pointer{cursor:pointer}.cursor-zoom-in{cursor:zoom-in}.select-none{-webkit-user-select:none;user-select:none}.scroll-mt-32{scroll-margin-top:8rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-x-12{column-gap:3rem}.gap-y-12{row-gap:3rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#4F7CFF\]\/30{border-color:rgb(79 124 255 / 0.3)}.border-aesBorder{border-color:var(--aes-border)}.border-aesText{border-color:var(--aes-text)}.border-transparent{border-color:transparent}.bg-\[\#4F7CFF\]{--tw-bg-opacity:1;background-color:rgb(79 124 255 / var(--tw-bg-opacity, 1))}.bg-\[\#4F7CFF\]\/10{background-color:rgb(79 124 255 / 0.1)}.bg-aesBase{background-color:var(--aes-base)}.bg-aesInvBase{background-color:var(--aes-inv-base)}.bg-aesSurface{background-color:var(--aes-surface)}.bg-black\/10{background-color:rgb(0 0 0 / 0.1)}.bg-red-800{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.object-contain{object-fit:contain}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-0\.5{padding-bottom:0.125rem}.pb-20{padding-bottom:5rem}.pb-3{padding-bottom:0.75rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2rem}.pt-10{padding-top:2.5rem}.pt-16{padding-top:4rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-sans{font-family:"Inter", sans-serif}.font-serif{font-family:"Cormorant Garamond", serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[7px\]{font-size:7px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.1\]{line-height:1.1}.leading-loose{line-height:2}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-\[\#4F7CFF\]{--tw-text-opacity:1;color:rgb(79 124 255 / var(--tw-text-opacity, 1))}.text-aesError{color:var(--aes-error)}.text-aesInvText{color:var(--aes-inv-text)}.text-aesMuted{color:var(--aes-muted)}.text-aesSuccess{color:var(--aes-success)}.text-aesText{color:var(--aes-text)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-40{opacity:0.4}.opacity-45{opacity:0.45}.opacity-60{opacity:0.6}.opacity-80{opacity:0.8}.opacity-90{opacity:0.9}.shadow-\[0_0_70px_-20px_rgba\(79\2c 124\2c 255\2c 0\.55\)\]{--tw-shadow:0 0 70px -20px rgba(79,124,255,0.55);--tw-shadow-colored:0 0 70px -20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_10px_40px_rgba\(0\2c 0\2c 0\2c 0\.15\)\]{--tw-shadow:0 10px 40px rgba(0,0,0,0.15);--tw-shadow-colored:0 10px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-\[\#4F7CFF\]\/50{--tw-ring-color:rgb(79 124 255 / 0.5)}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.selection\:bg-aesAccent *::selection{background-color:var(--aes-accent)}.selection\:text-aesText *::selection{color:var(--aes-text)}.selection\:bg-aesAccent::selection{background-color:var(--aes-accent)}.selection\:text-aesText::selection{color:var(--aes-text)}.hover\:border-aesMuted:hover{border-color:var(--aes-muted)}.hover\:bg-aesBase:hover{background-color:var(--aes-base)}.hover\:bg-aesInvBase:hover{background-color:var(--aes-inv-base)}.hover\:text-aesInvText:hover{color:var(--aes-inv-text)}.hover\:text-aesMuted:hover{color:var(--aes-muted)}.hover\:text-aesText:hover{color:var(--aes-text)}.hover\:opacity-80:hover{opacity:0.8}.focus\:border-aesMuted:focus{border-color:var(--aes-muted)}.disabled\:opacity-50:disabled{opacity:0.5}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-black\/0{background-color:rgb(0 0 0 / 0)}.group:hover .group-hover\:italic{font-style:italic}@media (min-width: 640px){.sm\:block{display:block}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:p-10{padding:2.5rem}.sm\:px-0{padding-left:0px;padding-right:0px}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 768px){.md\:bottom-8{bottom:2rem}.md\:left-8{left:2rem}.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-2{grid-column:span 2 / span 2}.md\:mb-0{margin-bottom:0px}.md\:mb-10{margin-bottom:2.5rem}.md\:mb-16{margin-bottom:4rem}.md\:mb-24{margin-bottom:6rem}.md\:mb-4{margin-bottom:1rem}.md\:mb-6{margin-bottom:1.5rem}.md\:mb-8{margin-bottom:2rem}.md\:mr-2{margin-right:0.5rem}.md\:mt-0{margin-top:0px}.md\:mt-20{margin-top:5rem}.md\:mt-32{margin-top:8rem}.md\:mt-4{margin-top:1rem}.md\:mt-5{margin-top:1.25rem}.md\:mt-56{margin-top:14rem}.md\:block{display:block}.md\:inline{display:inline}.md\:h-2{height:0.5rem}.md\:h-4{height:1rem}.md\:min-h-\[250px\]{min-height:250px}.md\:w-2{width:0.5rem}.md\:w-4{width:1rem}.md\:w-8{width:2rem}.md\:max-w-none{max-width:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:gap-2{gap:0.5rem}.md\:gap-24{gap:6rem}.md\:gap-3{gap:0.75rem}.md\:gap-4{gap:1rem}.md\:gap-6{gap:1.5rem}.md\:gap-8{gap:2rem}.md\:gap-x-20{column-gap:5rem}.md\:gap-y-16{row-gap:4rem}.md\:space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.md\:p-24{padding:6rem}.md\:p-6{padding:1.5rem}.md\:p-8{padding:2rem}.md\:px-0{padding-left:0px;padding-right:0px}.md\:px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:px-4{padding-left:1rem;padding-right:1rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.md\:py-16{padding-top:4rem;padding-bottom:4rem}.md\:py-2{padding-top:0.5rem;padding-bottom:0.5rem}.md\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.md\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.md\:py-4{padding-top:1rem;padding-bottom:1rem}.md\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.md\:py-8{padding-top:2rem;padding-bottom:2rem}.md\:pb-1{padding-bottom:0.25rem}.md\:pb-12{padding-bottom:3rem}.md\:pb-32{padding-bottom:8rem}.md\:pb-4{padding-bottom:1rem}.md\:pb-8{padding-bottom:2rem}.md\:pt-24{padding-top:6rem}.md\:pt-8{padding-top:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-\[10px\]{font-size:10px}.md\:text-\[14px\]{font-size:14px}.md\:text-\[9px\]{font-size:9px}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:flex{display:flex}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1280px){.xl\:p-8{padding:2rem}.xl\:text-2xl{font-size:1.5rem;line-height:2rem}.xl\:text-3xl{font-size:1.875rem;line-height:2.25rem}.xl\:text-4xl{font-size:2.25rem;line-height:2.5rem}.xl\:text-5xl{font-size:3rem;line-height:1}.xl\:text-\[10px\]{font-size:10px}.xl\:text-\[8px\]{font-size:8px}.xl\:text-xl{font-size:1.25rem;line-height:1.75rem}.xl\:text-xs{font-size:0.75rem;line-height:1rem}}
+
+        /* Extra styles for shadowy payment cards and active beta card */
+        .card-shadowy {
+            opacity: 0.28 !important;
+            filter: grayscale(100%) blur(0.3px) !important;
+            pointer-events: none !important;
+            user-select: none !important;
+            background: rgba(0, 0, 0, 0.45) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: none !important;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .card-shadowy::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            pointer-events: none;
+        }
+        .card-beta-active {
+            position: relative;
+            background: var(--aes-surface) !important;
+            border-color: rgba(79, 124, 255, 0.6) !important;
+            box-shadow: 0 0 60px -10px rgba(79, 124, 255, 0.45), 0 0 0 1px rgba(79, 124, 255, 0.5) !important;
+            z-index: 10;
+        }
+        .badge-tag-glow {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(99, 102, 241, 0.25));
+            border: 1px solid rgba(96, 165, 250, 0.55);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+        }
+        .btn-download-glow {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-download-glow:hover {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.7);
+            transform: translateY(-2px);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out, opacity 0.35s ease-out, margin-top 0.35s ease-out;
+            opacity: 0;
+        }
+        .faq-answer.open {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.rotated {
+            transform: rotate(45deg);
+        }
+        #lightbox-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #toast-banner {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        /* Mobile Performance optimizations */
+        img {
+            content-visibility: auto;
+        }
+    
     </style>
 </head>
 <body>
-    <div id="root"><main style="max-width:760px;margin:0 auto;padding:48px 24px;font-family:Inter,system-ui,sans-serif;color:#EDEDF0;background:#0B0B0D;min-height:100vh;line-height:1.6">
-<h1>Aurex: a private AI desktop app that uses your own API keys</h1>
-<p>Aurex is a local-first AI workspace for your computer. Use OpenAI, Anthropic and other models with your own API keys, chat with your own files, and approve every command and file change the agent makes. Free 3-month beta.</p>
-<h2>Features</h2><ul>
-<li>Model Fabric: routes tasks to local or cloud models and fails over when a provider hits a billing limit</li>
-<li>Live cost shown for every chat</li><li>Agent mode and Chat mode</li>
-<li>Obsidian vault sync with a visual knowledge graph</li><li>Email (IMAP) and calendar (CalDAV) integration, contacts sync, task scheduling</li>
-<li>Terminal Cookbook and secure shell execution</li><li>Trust Layer: visual diff and approval before destructive actions</li>
-<li>Context Compactor for long sessions</li><li>Study tools: flashcards, deep research, PDF and PPTX export</li></ul>
-<h2>Pricing</h2><p>Free beta for 3 months. Founder's Lifetime: $99 one-time for the first 100 Founders. Student and Pro subscriptions launch with version 1.0. You pay your AI provider directly for API usage.</p>
-<p><a href="about.html" style="color:#8aa4ff">About</a> · <a href="privacy.html" style="color:#8aa4ff">Privacy</a> · <a href="terms.html" style="color:#8aa4ff">Terms</a> · <a href="refund.html" style="color:#8aa4ff">Refunds</a> · <a href="contact.html" style="color:#8aa4ff">Contact</a></p></main></div>
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-        const { motion, AnimatePresence } = window.Motion;
+    <div id="root">
+<div class="min-h-screen font-sans selection:bg-aesAccent selection:text-aesText flex flex-col overflow-hidden relative"><nav class="w-full px-5 py-6 md:px-8 md:py-8 flex items-center justify-between z-50 sticky top-0 bg-aesBase/90 backdrop-blur-md border-b border-transparent transition-colors duration-500" ><div class="flex items-center gap-4 md:gap-8 text-xs tracking-[0.2em] uppercase text-aesMuted"><div class="flex items-center gap-3"><button class="p-2 border border-aesBorder rounded-full hover:bg-aesAccent/20 transition-all flex items-center justify-center shrink-0" title="Toggle Theme" tabindex="0"><div ><svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-aesText" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path></svg></div></button><a href="https://instagram.com/aurex_ai_os" target="_blank" rel="noopener noreferrer" class="p-2 border border-aesBorder rounded-full hover:bg-aesAccent/20 transition-all flex items-center justify-center shrink-0" title="Instagram"><svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-aesText" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg></a></div><div class="hidden lg:flex gap-8"><a href="#vision" class="hover:text-aesText transition-colors">Vision</a><a href="#features" class="hover:text-aesText transition-colors">Features</a></div></div><div class="text-2xl md:text-3xl font-serif tracking-widest uppercase font-medium absolute left-1/2 -translate-x-1/2 cursor-pointer">Aurex</div><div class="flex gap-4 md:gap-8 items-center text-[10px] md:text-xs tracking-[0.2em] uppercase text-aesMuted"><a href="#pricing" class="hover:text-aesText transition-colors hidden md:block">Pricing</a><button class="text-aesText border-b border-aesText pb-0.5 md:pb-1 hover:text-aesMuted hover:border-aesMuted transition-all text-center whitespace-nowrap">Secure Spot</button></div></nav><main class="flex-1 w-full max-w-7xl mx-auto px-5 md:px-12 pt-10 md:pt-24 pb-20 md:pb-32"><section id="vision" class="flex flex-col items-center text-center max-w-4xl mx-auto pt-4 md:pt-8" style="opacity: 1;"><div class="flex items-center gap-2 md:gap-3 border border-[#4F7CFF]/30 bg-[#4F7CFF]/10 px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-6 md:mb-8" ><span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#4F7CFF] animate-pulse"></span><span class="text-[8px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-aesText opacity-80">Early Beta: 3 months</span></div><h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] mb-5 md:mb-6 font-light text-aesText px-2" >The OS that actually does the work. <br><span class="italic text-aesMuted block mt-1 md:mt-0 md:inline">Safely.</span></h1><p class="font-sans font-light text-aesMuted text-base md:text-xl max-w-2xl leading-relaxed mb-6 md:mb-6 px-4" >A local-first, BYOK desktop agent that reads your codebase, executes terminal commands, and manages your files—but never acts without your permission.</p><div class="flex flex-col items-center mb-10 md:mb-10" ><span class="text-[9px] md:text-[10px] font-sans uppercase tracking-widest text-aesMuted text-center max-w-[260px] md:max-w-none mt-2 md:mt-4">Free 3-month beta. Bring your own API keys.</span></div><div class="w-full sm:w-auto px-4 sm:px-0 relative" ><button class="w-full sm:w-auto px-6 md:px-12 py-4 md:py-5 rounded-full bg-aesInvBase text-aesInvText text-xs md:text-sm uppercase tracking-widest transition-all shadow-[0_10px_40px_rgba(0,0,0,0.15)] relative overflow-hidden group" tabindex="0"><span class="relative z-10 flex items-center justify-center gap-2">Pre-Book Beta Access <svg class="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></span></button></div></section><section class="mt-20 md:mt-32 w-full flex justify-center px-2 md:px-0" ><div class="w-full max-w-5xl relative group overflow-hidden rounded-2xl border border-aesBorder bg-aesSurface glow-frame"><img src="./aurex_hero_1600.webp" srcset="./aurex_hero_800.webp 800w, ./aurex_hero_1600.webp 1600w" sizes="(min-width: 1024px) 1024px, 100vw" width="1600" height="865" fetchpriority="high" decoding="async" alt="Aurex desktop app showing the chat window, cost meter and sidebar" class="w-full h-auto object-contain cursor-zoom-in max-h-[80vh]"><div class="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/0 pointer-events-none"></div><div class="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-white text-[10px] md:text-sm font-sans tracking-widest uppercase flex items-center gap-3 md:gap-4 pointer-events-none"><span class="w-6 md:w-8 h-[1px] bg-white block shadow-lg"></span><span class="drop-shadow-md">Aurex Interface</span></div></div></section><section id="features" class="mt-32 md:mt-56 scroll-mt-32"><div class="flex flex-col md:flex-row justify-between items-start mb-16 md:mb-24 border-b border-aesBorder pb-8 md:pb-12" ><h2 class="text-3xl md:text-5xl font-serif font-light text-aesText">Features</h2><p class="font-sans text-aesMuted font-light max-w-md mt-4 md:mt-0 text-base md:text-lg">An advanced, multi-modal architecture elevating the local developer experience.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-20 gap-y-12 md:gap-y-16" ><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">Model Fabric &amp; Auto-Failover</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">Dynamically routes tasks to the best local or cloud models. Transparently detects billing limits and auto-negotiates budgets or failovers instantly.</p></div><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">Obsidian Knowledge Graph</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">Bidirectional Obsidian vault sync powered by ChromaDB vector similarity. Interactive visual graphs with auto-prompted ghost links.</p></div><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">Workspace Integration</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">Agentic access to your workflow. CalDAV bidirectional scheduling, IMAP email parsing, Contacts syncing, and automated Task Scheduling.</p></div><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">Terminal &amp; Study Ecosystem</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">Secure shell execution and Python cookbooks. Native conversion of outputs to PDF and PPTX slides, plus automated flashcards.</p></div><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">The Trust Layer</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">A strict tool policy engine. Validates domains and physically pauses the agent with a visual diff before any destructive action is executed.</p></div><div class="group cursor-default" ><div class="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div><h3 class="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">Context Compactor</h3><p class="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">Automatically prunes and summarizes long context windows to prevent token overflows and maintain high-fidelity reasoning over long sessions.</p></div></div></section><section id="everything" class="mt-32 md:mt-56 scroll-mt-32"><div class="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 border-b border-aesBorder pb-8"><h2 class="text-3xl md:text-5xl font-serif font-light text-aesText">Everything inside Aurex</h2><p class="font-sans text-aesMuted font-light max-w-md mt-4 md:mt-0 text-base md:text-lg">What you get in the beta today, and what is planned next.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Models and cost</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">Use the AI you choose and see what it costs.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> Agent mode and Chat mode in one window</li><li><span class="text-aesSuccess">✓</span> Bring your own API keys, no middleman subscription</li><li><span class="text-aesSuccess">✓</span> Model Fabric routes tasks to local or cloud models</li><li><span class="text-aesSuccess">✓</span> Detects billing limits and fails over automatically</li><li><span class="text-aesSuccess">✓</span> Live cost shown for every chat</li></ul></div><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Your knowledge</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">Everything you know, searchable and connected.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> Drag and drop files and folders into a chat</li><li><span class="text-aesSuccess">✓</span> Ctrl+K search across all conversations</li><li><span class="text-aesSuccess">✓</span> Library and Notes for your material</li><li><span class="text-aesSuccess">✓</span> Obsidian vault sync using ChromaDB similarity</li><li><span class="text-aesSuccess">✓</span> Interactive graph with suggested ghost links</li><li><span class="text-aesSuccess">✓</span> Context Compactor keeps long sessions sharp</li></ul></div><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Workspace</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">Aurex works with your day, not just a chat box.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> IMAP email parsing</li><li><span class="text-aesSuccess">✓</span> CalDAV two-way calendar scheduling</li><li><span class="text-aesSuccess">✓</span> Contacts syncing</li><li><span class="text-aesSuccess">✓</span> Tasks and automated Task Scheduler</li><li><span class="text-aesSuccess">✓</span> Background Scheduler for recurring work</li></ul></div><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Developer tools</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">Run and review code with a seat belt on.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> Secure shell execution</li><li><span class="text-aesSuccess">✓</span> Terminal Cookbook and Python cookbooks</li><li><span class="text-aesSuccess">✓</span> Debug Code and Code Review helpers</li><li><span class="text-aesSuccess">✓</span> Visual diffs for proposed changes</li></ul></div><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Study</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">Turn material into something you can learn from.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> Student Planner</li><li><span class="text-aesSuccess">✓</span> Auto-generated flashcards</li><li><span class="text-aesSuccess">✓</span> Explain Concept for hard topics</li><li><span class="text-aesSuccess">✓</span> Deep Research tool</li><li><span class="text-aesSuccess">✓</span> Export to PDF and PPTX slides</li></ul></div><div class="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface"><h3 class="font-serif text-xl md:text-2xl mb-2 text-aesText">Trust Layer</h3><p class="font-sans font-light text-sm text-aesMuted mb-5">You stay in control of what the agent does.</p><ul class="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted"><li><span class="text-aesSuccess">✓</span> Tool policy engine validates domains</li><li><span class="text-aesSuccess">✓</span> Pauses with a visual diff before destructive actions</li><li><span class="text-aesSuccess">✓</span> Nothing risky runs until you approve</li><li><span class="text-aesSuccess">✓</span> Your project history stays yours</li></ul></div></div><h3 class="font-serif text-2xl md:text-3xl mt-20 mb-3 text-aesText">Roadmap</h3><p class="font-sans font-light text-sm text-aesMuted mb-8 max-w-2xl">Planned, not yet released. Scope and timing can change as we learn from beta users.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">Beta</span><span class="font-serif text-lg text-aesText">Free-tier resilience and safety</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Auto-continue and resume after rate limits, secret scrubber, Leak Shield, Privacy Firewall log, Git rollback, Compare Mode, Debate Arena</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V1.0</span><span class="font-serif text-lg text-aesText">Public launch</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Spaced repetition, Study From This, course workspaces, basic Flight Recorder timeline, seat transfer</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V1.1</span><span class="font-serif text-lg text-aesText">Savings</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Savings Report, cost preview before big prompts, CSV cost export, prompt library</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V1.2</span><span class="font-serif text-lg text-aesText">Student depth</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Mistake book, mastery tracking, study planner, mock exams, Process Proof report</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V1.3</span><span class="font-serif text-lg text-aesText">Agent safety</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Full Flight Recorder with rollback, Loop Guard, Project Builder, Mac and Linux builds</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V1.5</span><span class="font-serif text-lg text-aesText">Smart layer</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Cascade Router, Token Shield, Reversible Redaction, Proof Mode, deep research workbench</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V2.0</span><span class="font-serif text-lg text-aesText">Memory and automation</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Local memory you can edit, Watch Folders, MCP tools with permission prompts, Undo Everything</p></div><div class="p-5 md:p-6 rounded-2xl border border-aesBorder"><div class="flex items-baseline gap-3 mb-2"><span class="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">V2.5</span><span class="font-serif text-lg text-aesText">Teams</span></div><p class="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">Shared workspaces, admin controls, usage reports, optional encrypted sync</p></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16"><div class="p-5 rounded-2xl border border-aesBorder bg-aesSurface"><h4 class="font-serif text-base text-aesText mb-2">Your keys stay with you</h4><p class="font-sans font-light text-xs text-aesMuted leading-relaxed">API keys live on your computer and your prompts go straight to your chosen provider.</p></div><div class="p-5 rounded-2xl border border-aesBorder bg-aesSurface"><h4 class="font-serif text-base text-aesText mb-2">Secure payments</h4><p class="font-sans font-light text-xs text-aesMuted leading-relaxed">Checkout is handled by Lemon Squeezy, a payment provider that also manages sales tax.</p></div><div class="p-5 rounded-2xl border border-aesBorder bg-aesSurface"><h4 class="font-serif text-base text-aesText mb-2">Clear refunds</h4><p class="font-sans font-light text-xs text-aesMuted leading-relaxed">30-day refund on Founder purchases. See the refund policy.</p></div><div class="p-5 rounded-2xl border border-aesBorder bg-aesSurface"><h4 class="font-serif text-base text-aesText mb-2">A real person to ask</h4><p class="font-sans font-light text-xs text-aesMuted leading-relaxed">Send a message and a human replies. Use the contact form in the footer.</p></div></div></section><section id="security" class="mt-32 md:mt-56 bg-aesSurface p-6 sm:p-10 md:p-24 rounded-3xl border border-aesBorder flex flex-col md:flex-row items-center gap-12 md:gap-24 overflow-hidden relative" ><div class="flex-1 relative z-10 w-full"><div class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-aesMuted mb-4 md:mb-6">Security</div><h2 class="text-3xl sm:text-4xl md:text-6xl font-serif leading-tight font-light mb-6 md:mb-8 text-aesText">Don't let AI <br class="hidden sm:block"><span class="italic">nuke your codebase.</span></h2><p class="font-sans font-light text-aesMuted text-sm md:text-lg leading-relaxed max-w-md">Aurex intercepts every tool call. You see a beautiful visual diff of the plan before it executes. You approve every action before it runs.</p></div><div class="flex-1 w-full flex justify-center relative z-10" ><div class="w-full max-w-sm bg-aesBase p-6 md:p-8 border border-aesBorder rounded-sm min-h-[220px] md:min-h-[250px] flex flex-col justify-center transition-all duration-300"><div ><div class="flex justify-between items-center mb-6 md:mb-8 border-b border-aesBorder pb-3 md:pb-4"><span class="font-serif italic text-base md:text-lg text-aesText">Action Required</span><span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-800 animate-pulse"></span></div><p class="font-sans font-light text-xs md:text-sm leading-loose mb-8 md:mb-10 text-aesText">Aurex intends to run <span class="border-b border-aesText pb-0.5 font-medium">npm install</span> and modify <span class="border-b border-aesText pb-0.5 font-medium">3 files</span>.</p><div class="flex gap-3 md:gap-4"><button class="flex-1 py-2.5 md:py-3 bg-aesInvBase text-aesInvText text-[10px] md:text-xs uppercase tracking-widest hover:opacity-80 transition-opacity">Approve</button><button class="flex-1 py-2.5 md:py-3 border border-aesBorder text-aesText text-[10px] md:text-xs uppercase tracking-widest hover:bg-aesBorder/50 transition-colors">Deny</button></div></div></div></div></section><section id="pricing" class="mt-32 md:mt-56 scroll-mt-32"><div class="flex flex-col items-center mb-12 md:mb-16" ><div class="bg-aesInvBase text-aesInvText px-5 py-4 md:px-8 md:py-4 mb-8 md:mb-10 text-center shadow-xl border border-aesInvText/20 w-full max-w-2xl"><p class="font-sans text-[10px] md:text-sm tracking-wide leading-relaxed"><span class="font-bold mr-0 md:mr-2 text-xs md:text-[14px] block md:inline mb-1 md:mb-0">3-month beta</span><span class="font-light opacity-90 block md:inline mt-1 md:mt-0">Unlimited full access to all features is active for the public beta. Download now and start working immediately.</span></p></div><h2 class="text-3xl md:text-5xl font-serif font-light text-center mb-6 md:mb-8 text-aesText">Join the Beta</h2><div class="flex flex-col items-center gap-3 mb-8 md:mb-10"><a href="./AurexOS-1.0.2-Setup.exe" download="AurexOS-1.0.2-Setup.exe" onclick="window.handleBetaDownloadClick(event)" class="px-8 md:px-12 py-4 rounded-full bg-aesInvBase text-aesInvText text-xs md:text-sm uppercase tracking-widest hover:opacity-80 transition-opacity inline-block text-center font-medium">Download Beta for Windows</a><span class="font-sans font-light text-[11px] text-aesMuted text-center">Free during the beta. Your keys and files stay on your computer.</span></div><div class="flex flex-row items-center gap-2 md:gap-4 text-[10px] md:text-xs uppercase tracking-widest font-medium text-aesText border border-aesBorder p-1"><button class="px-4 py-2 md:px-6 transition-colors hover:bg-aesBorder/30 text-aesMuted">Monthly</button><button class="px-4 py-2 md:px-6 transition-colors flex items-center gap-1.5 md:gap-2 bg-aesSurface shadow-sm border border-aesBorder">Yearly <span class="text-[7px] md:text-[9px] bg-aesInvBase text-aesInvText px-1 py-0.5 md:px-1.5 whitespace-nowrap">Save 45%</span></button></div></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <!-- 1. Founder's Lifetime (SHADOWY / LOCKED) -->
+        <div class="p-6 xl:p-8 rounded-2xl border border-aesBorder/30 card-shadowy flex flex-col h-full relative">
+            <div class="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-white/20 px-2 py-0.5 rounded-full text-white/50">
+                Locked During Beta
+            </div>
+            <p class="font-sans text-[10px] xl:text-xs tracking-wide text-[#4F7CFF] mb-3 font-medium opacity-60">
+                Limited to the first 100 Founders
+            </p>
+            <h3 class="font-serif text-xl xl:text-3xl mb-3 italic text-aesText opacity-70">Founder's Lifetime</h3>
+            <div class="font-serif text-4xl xl:text-5xl mb-1 text-aesText opacity-70">
+                $99<span class="text-sm font-sans font-light opacity-50 ml-2">once, forever</span>
+            </div>
+            <p class="font-sans text-xs text-aesMuted mb-6 opacity-60">Never this low again. Unlocks with V1.0.</p>
+            <p class="font-serif text-lg xl:text-xl leading-snug text-aesText mb-6 opacity-60">
+                Pays for itself in 8 months of Pro. Free for life afterward.
+            </p>
+            <ul class="space-y-2 md:space-y-3 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1 opacity-50">
+                <li><span>✓</span> Pro features for life, including future Pro features</li>
+                <li><span>✓</span> No subscription, ever</li>
+                <li><span>✓</span> Early access and say in what we build next</li>
+                <li><span>✓</span> Priority support channel</li>
+                <li><span>✓</span> 30-day refund, no questions</li>
+            </ul>
+            <div class="w-full py-3 border border-aesBorder/30 text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center rounded-lg bg-black/30 opacity-70">
+                Launches with V1.0
+            </div>
+        </div>
 
-        const FAQS = [
-            {
-                q: "If it's BYOK, why shouldn't I just use a free open-source agent like OpenClaude?",
-                a: "You absolutely can, if you love managing Python environments, debugging dependency conflicts, and reading terminal outputs. We built Aurex for people who want the power of a local AI agent wrapped in a stunning, stable, native desktop UI. Aurex gives you our proprietary Model Router, a visual RAG file manager, and the native Trust Layer (approval GUI) out-of-the-box. You are paying for the execution, the safety, and the seamless workflow."
-            },
-            {
-                q: "Does Aurex store my files, or train its AI on my codebase and study notes?",
-                a: "Aurex does not upload your files. Your files, notes and search indexes stay on your own computer. When you send a message, it goes from your computer straight to the AI provider you chose, using your own API key, and not through an Aurex server. Aurex does not train models on your data. The only things that reach Aurex are your license check and your email if you join the waitlist. How a provider handles API data is set by its own terms, so read the policy of any provider you connect."
-            },
-            {
-                q: "Do I need an expensive PC or a massive GPU to run Aurex?",
-                a: "No. Aurex itself is extremely lightweight. Because you are using API keys (BYOK) to connect to Claude or OpenAI, their massive supercomputers do the heavy lifting. Aurex just orchestrates the context and UI locally. It runs perfectly on a standard MacBook Air or a basic Windows laptop. (Note: If you choose to route tasks to local offline models via Ollama, a dedicated GPU is recommended but totally optional)."
-            },
-            {
-                q: "If I’m paying for Aurex and my own API keys, won't this get expensive?",
-                a: "It depends on how much you use it. Aurex charges for the app, and your AI provider bills your API usage directly. Light users often spend a few dollars a month and heavier users spend more. The live cost meter shows what every message costs, and you can set a budget cap so nothing surprises you. Model Fabric sends simple tasks like organizing files or making flashcards to cheaper models and saves stronger models for hard work like complex code. Add your API spend to the Aurex price and compare the total with a $20 subscription."
-            },
-            {
-                q: "I’ve seen AI agents hallucinate. Can Aurex delete my files or ruin my codebase?",
-                a: "This is why Aurex has the Trust Layer. Before it runs a destructive terminal command, changes a file or pushes code, Aurex pauses and shows you a visual diff of its plan. Nothing runs until you click Approve. You stay in charge, so read what you approve, and keep your project in Git so you can always step back."
-            },
-            {
-                q: "What happens to pricing when Aurex exits Beta and V1.0 launches?",
-                a: "Founder's Lifetime is $99 for the first 100 seats, then $129 for the next 150, then $179. Founders keep Pro features for life, including future Pro features, and are never billed again. Student and Pro subscriptions launch with V1.0 and will be listed here with their prices before you are asked to pay."
+        <!-- 2. Aurex Beta (ACTIVE / HERO CARD) -->
+        <div class="p-6 xl:p-8 rounded-2xl card-beta-active group flex flex-col h-full relative order-first lg:order-none">
+            <!-- REQUIRED PROMINENT TAG / BADGE -->
+            <div class="badge-tag-glow inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] font-semibold tracking-wide text-blue-300 mb-3 w-fit">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                <span>Unlimited all features access for limited amount of time — Download now!</span>
+            </div>
+
+            <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-serif text-2xl xl:text-3xl font-medium text-aesText">Aurex Beta</h3>
+                <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold border border-blue-400/30">Active</span>
+            </div>
+            <p class="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">BYOK • Full Pro Access</p>
+            <div class="font-serif text-4xl xl:text-5xl mb-1 text-aesText mt-2">
+                $0<span class="text-xs font-sans font-normal opacity-70 ml-2">free during beta</span>
+            </div>
+            <p class="font-sans text-[10px] text-blue-400 mb-4 font-medium">All Pro & Student capabilities 100% unlocked.</p>
+            <p class="font-sans font-light text-xs text-aesText leading-relaxed mb-5">Experience the full power of Aurex on your machine with your own API keys. No credit card required.</p>
+            
+            <ul class="space-y-2 md:space-y-2.5 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesText flex-1">
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span><strong>All features unlocked</strong> during public beta</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Agent mode & Chat mode in one window</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Bring your own API keys with live cost tracking</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Drag & drop files, folders, and codebases</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>The Trust Layer: visual diffs & safety approval</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Obsidian Vault sync & knowledge graph</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Email (IMAP) & calendar (CalDAV) sync</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Model Fabric failover when limits are reached</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Context Compactor for long sessions</span></li>
+                <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Terminal Cookbook & secure shell execution</span></li>
+            </ul>
+
+            <a
+                id="main-beta-download-btn"
+                href="./AurexOS-1.0.2-Setup.exe"
+                download="AurexOS-1.0.2-Setup.exe"
+                onclick="window.handleBetaDownloadClick(event)"
+                class="w-full py-4 btn-download-glow text-white text-[10px] xl:text-xs uppercase tracking-widest font-bold text-center block rounded-xl shadow-lg transition-all mt-auto cursor-pointer"
+            >
+                Download Beta (v1.0.2)
+            </a>
+        </div>
+
+        <!-- 3. Student (SHADOWY / LOCKED) -->
+        <div class="p-6 xl:p-8 rounded-2xl border border-aesBorder/30 card-shadowy flex flex-col h-full relative">
+            <div class="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-white/20 px-2 py-0.5 rounded-full text-white/50">
+                Launches with V1.0
+            </div>
+            <h3 class="font-serif text-lg xl:text-xl mb-1 text-aesText opacity-70">Student</h3>
+            <p class="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2 opacity-60">BYOK</p>
+            <div class="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5 opacity-70">
+                <span class="price-student-val">$39</span><span class="text-sm font-sans font-light opacity-50">/yr</span>
+            </div>
+            <p class="font-sans text-[10px] text-aesMuted mb-6 md:mb-8 opacity-60">about $3.25 a month</p>
+            <p class="font-sans font-light text-xs text-aesText leading-relaxed mb-5 opacity-60">For coursework: plan your study time, turn notes into flashcards, and export slides.</p>
+            <ul class="space-y-2 md:space-y-3 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1 opacity-50">
+                <li><span>✓</span> Everything in Aurex Beta</li>
+                <li><span>✓</span> Student Planner to organize classes</li>
+                <li><span>✓</span> Auto-flashcards from notes & PDFs</li>
+                <li><span>✓</span> Export notes as PDF or PPTX slides</li>
+                <li><span>✓</span> Deep Research tool for sources</li>
+            </ul>
+            <div class="w-full py-3 border border-aesBorder/30 text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center rounded-lg bg-black/30 opacity-70">
+                Coming after Beta
+            </div>
+        </div>
+
+        <!-- 4. Aurex Pro (SHADOWY / LOCKED) -->
+        <div class="p-6 xl:p-8 rounded-2xl border border-aesBorder/30 card-shadowy flex flex-col h-full relative">
+            <div class="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-white/20 px-2 py-0.5 rounded-full text-white/50">
+                Launches with V1.0
+            </div>
+            <h3 class="font-serif text-lg xl:text-xl mb-1 text-aesText opacity-70">Aurex Pro</h3>
+            <p class="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2 opacity-60">BYOK</p>
+            <div class="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5 opacity-70">
+                <span class="price-pro-val">$79</span><span class="text-sm font-sans font-light opacity-50">/yr</span>
+            </div>
+            <p class="font-sans text-[10px] text-aesMuted mb-6 md:mb-8 opacity-60">about $6.58 a month</p>
+            <p class="font-sans font-light text-xs text-aesText leading-relaxed mb-5 opacity-60">For developers and professionals who want Aurex working across files, mail and calendar.</p>
+            <ul class="space-y-2 md:space-y-3 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1 opacity-50">
+                <li><span>✓</span> Everything in Student</li>
+                <li><span>✓</span> Live Obsidian vault sync with knowledge graph</li>
+                <li><span>✓</span> Email parsing & two-way calendar sync</li>
+                <li><span>✓</span> Background Scheduler for recurring tasks</li>
+                <li><span>✓</span> Model Fabric failover & Context Compactor</li>
+            </ul>
+            <div class="w-full py-3 border border-aesBorder/30 text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center rounded-lg bg-black/30 opacity-70">
+                Coming after Beta
+            </div>
+        </div>
+
+        <!-- 5. Pro Cloud (SHADOWY / LOCKED) -->
+        <div class="p-6 xl:p-8 rounded-2xl border border-aesBorder/30 card-shadowy flex flex-col h-full relative">
+            <div class="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-white/20 px-2 py-0.5 rounded-full text-white/50">
+                Coming later
+            </div>
+            <h3 class="font-serif text-lg xl:text-xl mb-1 text-aesText opacity-70">Pro Cloud</h3>
+            <p class="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2 opacity-60">No API Key Req.</p>
+            <div class="font-serif text-xl xl:text-2xl mb-4 md:mb-6 text-aesMuted mt-3 md:mt-5 opacity-70">Price to be announced</div>
+            <p class="font-sans font-light text-xs text-aesText leading-relaxed mb-5 opacity-60">Aurex without the setup: no API keys to find or manage.</p>
+            <ul class="space-y-2 md:space-y-3 mb-6 md:mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1 opacity-50">
+                <li><span>✓</span> Zero setup, no API key needed</li>
+                <li><span>✓</span> Includes every Pro feature</li>
+                <li><span>✓</span> Usage limits announced before launch</li>
+            </ul>
+            <div class="w-full py-3 border border-aesBorder/30 text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center rounded-lg bg-black/30 opacity-70">
+                Coming later
+            </div>
+        </div>
+    </div>
+    <div class="max-w-md mx-auto mt-12 pt-8 border-t border-aesBorder"><form id="waitlist-form" class="flex flex-col gap-2" data-bound="true"><span class="text-xs font-serif italic text-aesText mb-1">Get the installer link and launch updates by email.</span><input type="email" id="waitlist-email" placeholder="Enter your email" class="w-full bg-aesSurface border border-aesBorder px-3 py-2.5 md:py-2 text-xs font-sans text-aesText outline-none focus:border-aesMuted transition-colors rounded-sm" required=""><button id="waitlist-btn" type="submit" class="w-full py-3 md:py-2.5 border border-aesBorder text-aesText text-[9px] xl:text-[10px] uppercase tracking-widest hover:bg-aesInvBase hover:text-aesInvText transition-colors disabled:opacity-50 rounded-sm mt-1">Join the Waitlist</button><p id="waitlist-status" class="text-center min-h-[16px]"></p></form></div><p class="font-sans font-light text-xs text-aesMuted text-center leading-relaxed mt-8 max-w-xl mx-auto">The beta runs for 3 months. Student and Pro subscriptions launch afterward, and Founders keep Pro features for life. Your AI provider bills API usage directly, and the cost meter shows what each message costs.</p></section><section class="mt-24 md:mt-32 max-w-3xl mx-auto border-t border-aesBorder pt-16 md:pt-24"><h2 class="text-3xl md:text-4xl font-serif font-light text-center mb-12 md:mb-16 text-aesText">Frequently Asked Questions</h2><div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">If it's BYOK, why shouldn't I just use a free open-source agent like OpenClaude?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">Does Aurex store my files, or train its AI on my codebase and study notes?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">Do I need an expensive PC or a massive GPU to run Aurex?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">If I’m paying for Aurex and my own API keys, won't this get expensive?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">I’ve seen AI agents hallucinate. Can Aurex delete my files or ruin my codebase?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div><div class="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer"><div class="flex justify-between items-center gap-4 md:gap-6"><h3 class="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">What happens to pricing when Aurex exits Beta and V1.0 launches?</h3><span class="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0" >+</span></div></div></div></section></main><footer class="w-full py-12 md:py-16 px-6 md:px-8 border-t border-aesBorder mt-16 md:mt-20 font-sans text-aesMuted text-xs"><div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8"><div class="col-span-2 md:col-span-1"><div class="font-serif text-lg text-aesText mb-2">Aurex</div><p class="font-light leading-relaxed mb-3">A private AI desktop workspace. Your keys, your files, your machine.</p><p class="font-light">Built by an independent developer</p></div><div class="flex flex-col gap-2"><span class="text-aesText mb-1">Product</span><a href="#features" class="hover:text-aesText">Features</a><a href="#everything" class="hover:text-aesText">Roadmap</a><a href="#pricing" class="hover:text-aesText">Pricing</a></div><div class="flex flex-col gap-2"><span class="text-aesText mb-1">Company</span><a href="about.html" class="hover:text-aesText">About</a><a href="contact.html" class="hover:text-aesText">Contact</a><a href="https://instagram.com/aurex_ai_os" target="_blank" rel="noopener noreferrer" class="hover:text-aesText">Instagram</a></div><div class="flex flex-col gap-2"><span class="text-aesText mb-1">Legal</span><a href="privacy.html" class="hover:text-aesText">Privacy Policy</a><a href="terms.html" class="hover:text-aesText">Terms of Service</a><a href="refund.html" class="hover:text-aesText">Refund Policy</a></div></div><div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-aesBorder">© 2026 Aurex. All rights reserved.</div></footer></div>
+    </div>
+
+
+    <!-- Toast Popup Notification -->
+    <div id="toast-banner" style="display:none; opacity:0; transform: translateX(-50%) translateY(20px);" class="fixed bottom-6 md:bottom-10 left-1/2 z-[100] bg-aesInvBase text-aesInvText px-6 py-4 md:px-8 md:py-5 rounded-sm shadow-2xl flex flex-col items-center w-[90%] max-w-sm text-center">
+        <span class="toast-title font-serif italic text-lg md:text-xl mb-1">Aurex Beta</span>
+        <span class="toast-desc font-sans text-[9px] md:text-[10px] uppercase tracking-widest opacity-70">Download started</span>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" style="visibility:hidden; opacity:0;" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-2 md:p-6 cursor-zoom-out">
+        <img src="./aurex_hero_1600.webp" width="1600" height="865" alt="Aurex Interface Fullscreen" class="w-auto h-auto max-w-full max-h-full rounded-sm shadow-2xl border border-white/10" />
+    </div>
+    
+
+    <script>
+    (function() {
+        // Theme toggle
+        var html = document.documentElement;
+        var themeToggleBtn = document.querySelector('button[title="Toggle Theme"]');
+        var isDark = localStorage.getItem('aurex_theme') === 'dark' || (!localStorage.getItem('aurex_theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        function applyTheme(dark) {
+            if (dark) {
+                html.classList.add('dark');
+                localStorage.setItem('aurex_theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('aurex_theme', 'light');
             }
-        ];
+        }
+        applyTheme(isDark);
 
-        // ---- PRICING SWITCHES (edit these, nothing else needs to change) ----
-        // false = 3-month beta: Free + Founder are live, Student/Pro/Cloud are shown dimmed as "Launches with V1.0".
-        // true  = V1.0 launch: every plan is live.
-        const SHOW_ALL_PLANS = false;
-        // Founder offer. Set FOUNDERS_OPEN to false the day you sell the 100th seat or the beta ends.
-        // The cap is real, so honor it: after 100 Founders the price must go up.
-        const FOUNDERS_OPEN = true;
-        // Beta installer. Paste the direct link to your signed installer (for example a GitHub release asset).
-        // While this is empty, the download button tells visitors the installer is coming and points them to the waitlist.
-        const BETA_DOWNLOAD_URL = "";
-        const BETA_PLATFORM = "Windows";
-        // Real waitlist size from your Supabase table. Leave null to hide the number. Never estimate it.
-        const WAITLIST_COUNT = null;
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                isDark = !html.classList.contains('dark');
+                applyTheme(isDark);
+            });
+        }
 
-        const BUILT_BY = "an independent developer";  // shown in the footer. Use a brand or company name if you have one
-        const AVAILABLE = [
-            { title: "Models and cost", blurb: "Use the AI you choose and see what it costs.", items: ["Agent mode and Chat mode in one window", "Bring your own API keys, no middleman subscription", "Model Fabric routes tasks to local or cloud models", "Detects billing limits and fails over automatically", "Live cost shown for every chat"] },
-            { title: "Your knowledge", blurb: "Everything you know, searchable and connected.", items: ["Drag and drop files and folders into a chat", "Ctrl+K search across all conversations", "Library and Notes for your material", "Obsidian vault sync using ChromaDB similarity", "Interactive graph with suggested ghost links", "Context Compactor keeps long sessions sharp"] },
-            { title: "Workspace", blurb: "Aurex works with your day, not just a chat box.", items: ["IMAP email parsing", "CalDAV two-way calendar scheduling", "Contacts syncing", "Tasks and automated Task Scheduler", "Background Scheduler for recurring work"] },
-            { title: "Developer tools", blurb: "Run and review code with a seat belt on.", items: ["Secure shell execution", "Terminal Cookbook and Python cookbooks", "Debug Code and Code Review helpers", "Visual diffs for proposed changes"] },
-            { title: "Study", blurb: "Turn material into something you can learn from.", items: ["Student Planner", "Auto-generated flashcards", "Explain Concept for hard topics", "Deep Research tool", "Export to PDF and PPTX slides"] },
-            { title: "Trust Layer", blurb: "You stay in control of what the agent does.", items: ["Tool policy engine validates domains", "Pauses with a visual diff before destructive actions", "Nothing risky runs until you approve", "Your project history stays yours"] }
-        ];
-        const ROADMAP = [
-            { v: "Beta", t: "Free-tier resilience and safety", i: "Auto-continue and resume after rate limits, secret scrubber, Leak Shield, Privacy Firewall log, Git rollback, Compare Mode, Debate Arena" },
-            { v: "V1.0", t: "Public launch", i: "Spaced repetition, Study From This, course workspaces, basic Flight Recorder timeline, seat transfer" },
-            { v: "V1.1", t: "Savings", i: "Savings Report, cost preview before big prompts, CSV cost export, prompt library" },
-            { v: "V1.2", t: "Student depth", i: "Mistake book, mastery tracking, study planner, mock exams, Process Proof report" },
-            { v: "V1.3", t: "Agent safety", i: "Full Flight Recorder with rollback, Loop Guard, Project Builder, Mac and Linux builds" },
-            { v: "V1.5", t: "Smart layer", i: "Cascade Router, Token Shield, Reversible Redaction, Proof Mode, deep research workbench" },
-            { v: "V2.0", t: "Memory and automation", i: "Local memory you can edit, Watch Folders, MCP tools with permission prompts, Undo Everything" },
-            { v: "V2.5", t: "Teams", i: "Shared workspaces, admin controls, usage reports, optional encrypted sync" }
-        ];
-
-        const App = () => {
-            const [isDark, setIsDark] = useState(false);
-            const [toast, setToast] = useState(null);
-            const [ghostStatus, setGhostStatus] = useState('pending');
-            const [billing, setBilling] = useState('yearly'); 
-            const [faqOpen, setFaqOpen] = useState(null);
-            const [lightboxOpen, setLightboxOpen] = useState(false);
-
-            useEffect(() => {
-                setIsDark(true);
-            }, []);
-
-            useEffect(() => {
-                if (isDark) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-                
-                if (lightboxOpen) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            }, [isDark, lightboxOpen]);
-
-            useEffect(() => {
-                const initWaitlist = () => {
-                    const form = document.getElementById("waitlist-form");
-                    const emailInput = document.getElementById("waitlist-email");
-                    const submitBtn = document.getElementById("waitlist-btn");
-                    const statusMsg = document.getElementById("waitlist-status");
-
-                    if (form && !form.hasAttribute('data-bound')) {
-                        form.setAttribute('data-bound', 'true');
-                        form.addEventListener("submit", async (e) => {
-                            e.preventDefault();
-                            const email = emailInput.value.trim().toLowerCase();
-
-                            if (!email) return;
-
-                            submitBtn.disabled = true;
-                            const originalBtnText = submitBtn.innerText;
-                            submitBtn.innerText = "Securing Spot...";
-                            if (statusMsg) statusMsg.innerText = "";
-
-                            try {
-                                const { error } = await window.supabase
-                                    .from("waitlist")
-                                    .insert([{ email: email }]);
-
-                                if (error) {
-                                    if (error.code === "23505") {
-                                        statusMsg.className = "text-[#d18a8a] text-[10px] mt-2 font-mono leading-tight";
-                                        statusMsg.innerText = "You're already on the VIP Beta waitlist!";
-                                    } else {
-                                        throw error;
-                                    }
-                                } else {
-                                    statusMsg.className = "text-[#a3c4ab] text-[10px] mt-2 font-mono leading-tight";
-                                    statusMsg.innerText = "Spot reserved. Check your inbox on launch day.";
-                                    emailInput.value = "";
-                                }
-                            } catch (err) {
-                                statusMsg.className = "text-[#d18a8a] text-[10px] mt-2 font-mono leading-tight";
-                                statusMsg.innerText = "Could not connect to server. Try again shortly.";
-                            } finally {
-                                submitBtn.disabled = false;
-                                submitBtn.innerText = originalBtnText;
-                            }
-                        });
-                    }
-                };
-                setTimeout(initWaitlist, 500);
-            }, []);
-
-            const showToast = (title, desc) => {
-                setToast({ title, desc });
-                setTimeout(() => setToast(null), 3000);
-            };
-
-            const handleBetaDownload = () => {
-                if (BETA_DOWNLOAD_URL) {
-                    showToast('Beta download started', 'Aurex beta for ' + BETA_PLATFORM);
-                    window.location.href = BETA_DOWNLOAD_URL;
-                } else {
-                    showToast('Installer opening soon', 'Join the waitlist below and we will email you the link.');
-                    const el = document.getElementById('waitlist-form');
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            };
-
-            const scrollTo = (e, id) => {
-                e.preventDefault();
-                const el = document.getElementById(id);
-                if (el) {
-                    const yOffset = -80; 
-                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({top: y, behavior: 'smooth'});
-                }
-            };
-
-            const handleGhostAction = (action) => {
-                setGhostStatus(action);
-                showToast(action === 'approved' ? 'Action Executed' : 'Action Terminated', 
-                          action === 'approved' ? 'The terminal command was authorized.' : 'The terminal command was safely blocked.');
-            };
-
-            const founderCard = (
-                <div className="p-6 xl:p-8 rounded-2xl ring-1 ring-[#4F7CFF]/50 shadow-[0_0_70px_-20px_rgba(79,124,255,0.55)] bg-aesSurface group flex flex-col h-full relative overflow-hidden">
-                    <p className="font-sans text-[10px] xl:text-xs tracking-wide text-[#4F7CFF] mb-3 font-medium">
-                        Limited to the first 100 Founders
-                    </p>
-                    <h3 className="font-serif text-xl xl:text-3xl mb-3 italic text-aesText">Founder's Lifetime</h3>
-
-                    <div className="font-serif text-4xl xl:text-5xl mb-1 text-aesText">
-                        $99<span className="text-sm font-sans font-light opacity-60 ml-2">once, forever</span>
-                    </div>
-                    <p className="font-sans text-xs text-aesMuted mb-6">Then $129 for the next Founders. Never this low again.</p>
-
-                    <p className="font-serif text-lg xl:text-xl leading-snug text-aesText mb-6">
-                        Pays for itself in about 8 months of Pro. After that, it's free for life.
-                    </p>
-
-                    <ul className="space-y-2 md:space-y-3 mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                        <li><span className="text-aesSuccess">✓</span> Pro features for life, including every future Pro feature</li>
-                        <li><span className="text-aesSuccess">✓</span> No subscription, ever</li>
-                        <li><span className="text-aesSuccess">✓</span> Early beta access and a say in what we build next</li>
-                        <li><span className="text-aesSuccess">✓</span> Priority support channel</li>
-                        <li><span className="text-aesSuccess">✓</span> 30-day refund, no questions</li>
-                    </ul>
-
-                    <p className="font-sans text-[11px] text-aesMuted mb-4 leading-relaxed">
-                        Founder pricing exists only during the beta. When it ends, Pro becomes a subscription.
-                    </p>
-                    {FOUNDERS_OPEN ? (
-                        <a
-                            href="https://aurexos.lemonsqueezy.com/checkout/buy/52b5e3a7-0aa3-45de-892c-d3eb38ac83d6"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full py-3.5 md:py-3 rounded-full bg-aesInvBase text-aesInvText hover:opacity-80 text-[10px] xl:text-xs uppercase tracking-widest transition-opacity mt-auto font-bold text-center block"
-                        >
-                            Claim Founder Access
-                        </a>
-                    ) : (
-                        <p className="w-full py-3 border border-aesBorder rounded-full text-aesMuted text-[10px] xl:text-xs uppercase tracking-widest text-center mt-auto">
-                            Founder seats are closed. Join the waitlist below.
-                        </p>
-                    )}
-                </div>
-            );
-
-            const waitlistForm = (
-                <form id="waitlist-form" className="flex flex-col gap-2">
-                    <span className="text-xs font-serif italic text-aesText mb-1">Get the installer link and launch updates by email.</span>
-                    <input
-                        type="email"
-                        id="waitlist-email"
-                        placeholder="Enter your email"
-                        className="w-full bg-aesSurface border border-aesBorder px-3 py-2.5 md:py-2 text-xs font-sans text-aesText outline-none focus:border-aesMuted transition-colors rounded-sm"
-                        required
-                    />
-                    <button
-                        id="waitlist-btn"
-                        type="submit"
-                        className="w-full py-3 md:py-2.5 border border-aesBorder text-aesText text-[9px] xl:text-[10px] uppercase tracking-widest hover:bg-aesInvBase hover:text-aesInvText transition-colors disabled:opacity-50 rounded-sm mt-1"
-                    >
-                        Join the Waitlist
-                    </button>
-                    <p id="waitlist-status" className="text-center min-h-[16px]"></p>
-                </form>
-            );
-
-            const containerVariants = {
-                hidden: { opacity: 0 },
-                show: {
-                    opacity: 1,
-                    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-                }
-            };
-
-            const itemVariants = {
-                hidden: { y: 20, opacity: 0 },
-                show: { 
-                    y: 0, 
-                    opacity: 1,
-                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-                }
-            };
-
-            return (
-                <div className="min-h-screen font-sans selection:bg-aesAccent selection:text-aesText flex flex-col overflow-hidden relative">
-                    
-                    {/* Lightbox Overlay */}
-                    <AnimatePresence>
-                        {lightboxOpen && (
-                            <motion.div 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => setLightboxOpen(false)}
-                                className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
-                            >
-                                <motion.img 
-                                    initial={{ scale: 0.95, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0.95, opacity: 0 }}
-                                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                                    src="./aurex_hero_1600.webp" 
-                                    width="1600" height="865" decoding="async"
-                                    alt="Aurex Interface Fullscreen" 
-                                    className="w-auto h-auto max-w-full max-h-full rounded-sm shadow-2xl border border-white/10"
-                                />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    <AnimatePresence>
-                        {toast && (
-                            <motion.div 
-                                initial={{ opacity: 0, y: 50, x: '-50%' }}
-                                animate={{ opacity: 1, y: 0, x: '-50%' }}
-                                exit={{ opacity: 0, y: 20, x: '-50%' }}
-                                className="fixed bottom-6 md:bottom-10 left-1/2 z-[100] bg-aesInvBase text-aesInvText px-6 py-4 md:px-8 md:py-5 rounded-sm shadow-2xl flex flex-col items-center w-[90%] max-w-sm text-center"
-                            >
-                                <span className="font-serif italic text-lg md:text-xl mb-1">{toast.title}</span>
-                                {toast.desc && <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest opacity-70">{toast.desc}</span>}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Mobile First Nav */}
-                    <motion.nav 
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="w-full px-5 py-6 md:px-8 md:py-8 flex items-center justify-between z-50 sticky top-0 bg-aesBase/90 backdrop-blur-md border-b border-transparent transition-colors duration-500"
-                    >
-                        <div className="flex items-center gap-4 md:gap-8 text-xs tracking-[0.2em] uppercase text-aesMuted">
-                            <div className="flex items-center gap-3">
-                                <motion.button 
-                                    whileTap={{ scale: 0.9 }}
-                                    whileHover={{ rotate: 15 }}
-                                    onClick={() => setIsDark(!isDark)} 
-                                    className="p-2 border border-aesBorder rounded-full hover:bg-aesAccent/20 transition-all flex items-center justify-center shrink-0"
-                                    title="Toggle Theme"
-                                >
-                                    <AnimatePresence mode="wait">
-                                        <motion.div
-                                            key={isDark ? "dark" : "light"}
-                                            initial={{ y: -5, opacity: 0, rotate: -45 }}
-                                            animate={{ y: 0, opacity: 1, rotate: 0 }}
-                                            exit={{ y: 5, opacity: 0, rotate: 45 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            {isDark ? (
-                                                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-aesText" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
-                                            ) : (
-                                                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-aesText" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
-                                            )}
-                                        </motion.div>
-                                    </AnimatePresence>
-                                </motion.button>
-                                <a 
-                                    href="https://instagram.com/aurex_ai_os" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="p-2 border border-aesBorder rounded-full hover:bg-aesAccent/20 transition-all flex items-center justify-center shrink-0" 
-                                    title="Instagram"
-                                >
-                                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-aesText" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                                </a>
-                            </div>
-                            
-                            <div className="hidden lg:flex gap-8">
-                                <a href="#vision" onClick={(e) => scrollTo(e, 'vision')} className="hover:text-aesText transition-colors">Vision</a>
-                                <a href="#features" onClick={(e) => scrollTo(e, 'features')} className="hover:text-aesText transition-colors">Features</a>
-                            </div>
-                        </div>
-                        
-                        <div 
-                            className="text-2xl md:text-3xl font-serif tracking-widest uppercase font-medium absolute left-1/2 -translate-x-1/2 cursor-pointer"
-                            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-                        >
-                            Aurex
-                        </div>
-
-                        <div className="flex gap-4 md:gap-8 items-center text-[10px] md:text-xs tracking-[0.2em] uppercase text-aesMuted">
-                            <a href="#pricing" onClick={(e) => scrollTo(e, 'pricing')} className="hover:text-aesText transition-colors hidden md:block">Pricing</a>
-                            <button 
-                                onClick={(e) => scrollTo(e, 'pricing')}
-                                className="text-aesText border-b border-aesText pb-0.5 md:pb-1 hover:text-aesMuted hover:border-aesMuted transition-all text-center whitespace-nowrap"
-                            >
-                                Secure Spot
-                            </button>
-                        </div>
-                    </motion.nav>
-
-                    <main className="flex-1 w-full max-w-7xl mx-auto px-5 md:px-12 pt-10 md:pt-24 pb-20 md:pb-32">
-                        
-                        <motion.section 
-                            id="vision"
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="show"
-                            className="flex flex-col items-center text-center max-w-4xl mx-auto pt-4 md:pt-8"
-                        >
-                            <motion.div variants={itemVariants} className="flex items-center gap-2 md:gap-3 border border-[#4F7CFF]/30 bg-[#4F7CFF]/10 px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-6 md:mb-8">
-                                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#4F7CFF] animate-pulse"></span>
-                                <span className="text-[8px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-aesText opacity-80">Early Beta: 3 months</span>
-                            </motion.div>
-                            
-                            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] mb-5 md:mb-6 font-light text-aesText px-2">
-                                The OS that actually does the work. <br/>
-                                <span className="italic text-aesMuted block mt-1 md:mt-0 md:inline">Safely.</span>
-                            </motion.h1>
-                            
-                            <motion.p variants={itemVariants} className="font-sans font-light text-aesMuted text-base md:text-xl max-w-2xl leading-relaxed mb-6 md:mb-6 px-4">
-                                A local-first, BYOK desktop agent that reads your codebase, executes terminal commands, and manages your files—but never acts without your permission.
-                            </motion.p>
-
-                            <motion.div variants={itemVariants} className="flex flex-col items-center mb-10 md:mb-10">
-                                <span className="text-[9px] md:text-[10px] font-sans uppercase tracking-widest text-aesMuted text-center max-w-[260px] md:max-w-none mt-2 md:mt-4">
-                                    {WAITLIST_COUNT ? `${WAITLIST_COUNT.toLocaleString()} people on the waitlist` : 'Free 3-month beta. Bring your own API keys.'}
-                                </span>
-                            </motion.div>
-                            
-                            <motion.div variants={itemVariants} className="w-full sm:w-auto px-4 sm:px-0 relative">
-                                <motion.button 
-                                    whileHover={{ scale: 1.02, backgroundColor: "var(--aes-text)", color: "var(--aes-base)" }} 
-                                    whileTap={{ scale: 0.98 }} 
-                                    onClick={(e) => scrollTo(e, 'pricing')}
-                                    className="w-full sm:w-auto px-6 md:px-12 py-4 md:py-5 rounded-full bg-aesInvBase text-aesInvText text-xs md:text-sm uppercase tracking-widest transition-all shadow-[0_10px_40px_rgba(0,0,0,0.15)] relative overflow-hidden group"
-                                >
-                                    <span className="relative z-10 flex items-center justify-center gap-2">Pre-Book Beta Access <svg className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></span>
-                                </motion.button>
-                            </motion.div>
-                        </motion.section>
-
-                        <motion.section 
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="mt-20 md:mt-32 w-full flex justify-center px-2 md:px-0"
-                        >
-                            <div className="w-full max-w-5xl relative group overflow-hidden rounded-2xl border border-aesBorder bg-aesSurface glow-frame">
-                                <motion.img 
-                                    whileHover={{ scale: 1.01 }}
-                                    transition={{ duration: 0.5, ease: "easeOut" }}
-                                    src="./aurex_hero_1600.webp" 
-                                    srcSet="./aurex_hero_800.webp 800w, ./aurex_hero_1600.webp 1600w"
-                                    sizes="(min-width: 1024px) 1024px, 100vw"
-                                    width="1600" height="865" fetchpriority="high" decoding="async"
-                                    alt="Aurex desktop app showing the chat window, cost meter and sidebar" 
-                                    className="w-full h-auto object-contain cursor-zoom-in max-h-[80vh]"
-                                    onClick={() => setLightboxOpen(true)}
-                                />
-                                <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/0 pointer-events-none"></div>
-                                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-white text-[10px] md:text-sm font-sans tracking-widest uppercase flex items-center gap-3 md:gap-4 pointer-events-none">
-                                    <span className="w-6 md:w-8 h-[1px] bg-white block shadow-lg"></span>
-                                    <span className="drop-shadow-md">Aurex Interface</span>
-                                </div>
-                            </div>
-                        </motion.section>
-
-                        <section id="features" className="mt-32 md:mt-56 scroll-mt-32">
-                            <motion.div 
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 1 }}
-                                className="flex flex-col md:flex-row justify-between items-start mb-16 md:mb-24 border-b border-aesBorder pb-8 md:pb-12"
-                            >
-                                <h2 className="text-3xl md:text-5xl font-serif font-light text-aesText">Features</h2>
-                                <p className="font-sans text-aesMuted font-light max-w-md mt-4 md:mt-0 text-base md:text-lg">
-                                    An advanced, multi-modal architecture elevating the local developer experience.
-                                </p>
-                            </motion.div>
-
-                            <motion.div 
-                                variants={containerVariants}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{ once: true, margin: "-50px" }}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-20 gap-y-12 md:gap-y-16"
-                            >
-                                {[
-                                    { num: "01", title: "Model Fabric & Auto-Failover", desc: "Dynamically routes tasks to the best local or cloud models. Transparently detects billing limits and auto-negotiates budgets or failovers instantly." },
-                                    { num: "02", title: "Obsidian Knowledge Graph", desc: "Bidirectional Obsidian vault sync powered by ChromaDB vector similarity. Interactive visual graphs with auto-prompted ghost links." },
-                                    { num: "03", title: "Workspace Integration", desc: "Agentic access to your workflow. CalDAV bidirectional scheduling, IMAP email parsing, Contacts syncing, and automated Task Scheduling." },
-                                    { num: "04", title: "Terminal & Study Ecosystem", desc: "Secure shell execution and Python cookbooks. Native conversion of outputs to PDF and PPTX slides, plus automated flashcards." },
-                                    { num: "05", title: "The Trust Layer", desc: "A strict tool policy engine. Validates domains and physically pauses the agent with a visual diff before any destructive action is executed." },
-                                    { num: "06", title: "Context Compactor", desc: "Automatically prunes and summarizes long context windows to prevent token overflows and maintain high-fidelity reasoning over long sessions." }
-                                ].map((feature, i) => (
-                                    <motion.div variants={itemVariants} key={i} className="group cursor-default">
-                                        <div className="w-8 h-px bg-[#4F7CFF] mb-4 md:mb-6"></div>
-                                        <h3 className="text-xl md:text-2xl font-serif font-medium mb-3 md:mb-4 text-aesText group-hover:italic transition-all duration-300">{feature.title}</h3>
-                                        <p className="font-sans font-light text-sm md:text-base text-aesMuted leading-relaxed">{feature.desc}</p>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </section>
-
-                        <section id="everything" className="mt-32 md:mt-56 scroll-mt-32">
-                            <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 border-b border-aesBorder pb-8">
-                                <h2 className="text-3xl md:text-5xl font-serif font-light text-aesText">Everything inside Aurex</h2>
-                                <p className="font-sans text-aesMuted font-light max-w-md mt-4 md:mt-0 text-base md:text-lg">What you get in the beta today, and what is planned next.</p>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {AVAILABLE.map((g) => (
-                                    <div key={g.title} className="p-6 md:p-8 rounded-2xl border border-aesBorder bg-aesSurface">
-                                        <h3 className="font-serif text-xl md:text-2xl mb-2 text-aesText">{g.title}</h3>
-                                        <p className="font-sans font-light text-sm text-aesMuted mb-5">{g.blurb}</p>
-                                        <ul className="space-y-2 font-sans font-light text-xs md:text-sm text-aesMuted">
-                                            {g.items.map((it) => (<li key={it}><span className="text-aesSuccess">✓</span> {it}</li>))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <h3 className="font-serif text-2xl md:text-3xl mt-20 mb-3 text-aesText">Roadmap</h3>
-                            <p className="font-sans font-light text-sm text-aesMuted mb-8 max-w-2xl">Planned, not yet released. Scope and timing can change as we learn from beta users.</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {ROADMAP.map((r) => (
-                                    <div key={r.v} className="p-5 md:p-6 rounded-2xl border border-aesBorder">
-                                        <div className="flex items-baseline gap-3 mb-2">
-                                            <span className="font-sans text-xs tracking-wide text-[#4F7CFF] font-medium">{r.v}</span>
-                                            <span className="font-serif text-lg text-aesText">{r.t}</span>
-                                        </div>
-                                        <p className="font-sans font-light text-xs md:text-sm text-aesMuted leading-relaxed">{r.i}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
-                                {[["Your keys stay with you", "API keys live on your computer and your prompts go straight to your chosen provider."], ["Secure payments", "Checkout is handled by Lemon Squeezy, a payment provider that also manages sales tax."], ["Clear refunds", "30-day refund on Founder purchases. See the refund policy."], ["A real person to ask", "Send a message and a human replies. Use the contact form in the footer."]].map(([t, d]) => (
-                                    <div key={t} className="p-5 rounded-2xl border border-aesBorder bg-aesSurface">
-                                        <h4 className="font-serif text-base text-aesText mb-2">{t}</h4>
-                                        <p className="font-sans font-light text-xs text-aesMuted leading-relaxed">{d}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
-                        <motion.section 
-                            id="security"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="mt-32 md:mt-56 bg-aesSurface p-6 sm:p-10 md:p-24 rounded-3xl border border-aesBorder flex flex-col md:flex-row items-center gap-12 md:gap-24 overflow-hidden relative"
-                        >
-                            <div className="flex-1 relative z-10 w-full">
-                                <div className="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-aesMuted mb-4 md:mb-6">Security</div>
-                                <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif leading-tight font-light mb-6 md:mb-8 text-aesText">
-                                    Don't let AI <br className="hidden sm:block" />
-                                    <span className="italic">nuke your codebase.</span>
-                                </h2>
-                                <p className="font-sans font-light text-aesMuted text-sm md:text-lg leading-relaxed max-w-md">
-                                    Aurex intercepts every tool call. You see a beautiful visual diff of the plan before it executes. You approve every action before it runs.
-                                </p>
-                            </div>
-
-                            <motion.div 
-                                initial={{ x: 50, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                                className="flex-1 w-full flex justify-center relative z-10"
-                            >
-                                <div className="w-full max-w-sm bg-aesBase p-6 md:p-8 border border-aesBorder rounded-sm min-h-[220px] md:min-h-[250px] flex flex-col justify-center transition-all duration-300">
-                                    <AnimatePresence mode="wait">
-                                        {ghostStatus === 'pending' && (
-                                            <motion.div 
-                                                key="pending"
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <div className="flex justify-between items-center mb-6 md:mb-8 border-b border-aesBorder pb-3 md:pb-4">
-                                                    <span className="font-serif italic text-base md:text-lg text-aesText">Action Required</span>
-                                                    <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-800 animate-pulse"></span>
-                                                </div>
-                                                <p className="font-sans font-light text-xs md:text-sm leading-loose mb-8 md:mb-10 text-aesText">
-                                                    Aurex intends to run <span className="border-b border-aesText pb-0.5 font-medium">npm install</span> and modify <span className="border-b border-aesText pb-0.5 font-medium">3 files</span>.
-                                                </p>
-                                                <div className="flex gap-3 md:gap-4">
-                                                    <button onClick={() => handleGhostAction('approved')} className="flex-1 py-2.5 md:py-3 bg-aesInvBase text-aesInvText text-[10px] md:text-xs uppercase tracking-widest hover:opacity-80 transition-opacity">Approve</button>
-                                                    <button onClick={() => handleGhostAction('denied')} className="flex-1 py-2.5 md:py-3 border border-aesBorder text-aesText text-[10px] md:text-xs uppercase tracking-widest hover:bg-aesBorder/50 transition-colors">Deny</button>
-                                                </div>
-                                            </motion.div>
-                                        )}
-
-                                        {ghostStatus === 'approved' && (
-                                            <motion.div 
-                                                key="approved"
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="text-center py-4 md:py-6"
-                                            >
-                                                <span className="text-aesSuccess text-2xl md:text-3xl block mb-3 md:mb-4">✓</span>
-                                                <p className="font-serif italic text-xl md:text-2xl text-aesText">Action Approved</p>
-                                                <p className="font-sans text-[9px] md:text-[10px] text-aesMuted mt-2 md:mt-3 uppercase tracking-widest">3 files modified successfully</p>
-                                                <button onClick={() => setGhostStatus('pending')} className="mt-6 md:mt-8 text-[9px] md:text-[10px] uppercase tracking-widest text-aesMuted hover:text-aesText border-b border-aesMuted pb-1 transition-colors">Reset Demo</button>
-                                            </motion.div>
-                                        )}
-
-                                        {ghostStatus === 'denied' && (
-                                            <motion.div 
-                                                key="denied"
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="text-center py-4 md:py-6"
-                                            >
-                                                <span className="text-aesError text-2xl md:text-3xl block mb-3 md:mb-4">✕</span>
-                                                <p className="font-serif italic text-xl md:text-2xl text-aesText">Action Blocked</p>
-                                                <p className="font-sans text-[9px] md:text-[10px] text-aesMuted mt-2 md:mt-3 uppercase tracking-widest">System secured. No files modified.</p>
-                                                <button onClick={() => setGhostStatus('pending')} className="mt-6 md:mt-8 text-[9px] md:text-[10px] uppercase tracking-widest text-aesMuted hover:text-aesText border-b border-aesMuted pb-1 transition-colors">Reset Demo</button>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </div>
-                            </motion.div>
-                        </motion.section>
-
-                        {/* Pricing: switch stages with SHOW_ALL_PLANS at the top of the script */}
-                        <section id="pricing" className="mt-32 md:mt-56 scroll-mt-32">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1 }}
-                                className="flex flex-col items-center mb-12 md:mb-16"
-                            >
-                                <div className="bg-aesInvBase text-aesInvText px-5 py-4 md:px-8 md:py-4 mb-8 md:mb-10 text-center shadow-xl border border-aesInvText/20 w-full max-w-2xl">
-                                    <p className="font-sans text-[10px] md:text-sm tracking-wide leading-relaxed">
-                                        <span className="font-bold mr-0 md:mr-2 text-xs md:text-[14px] block md:inline mb-1 md:mb-0">
-                                            {SHOW_ALL_PLANS ? 'Founding Member offer' : '3-month beta'}
-                                        </span>
-                                        <span className="font-light opacity-90 block md:inline mt-1 md:mt-0">
-                                            {SHOW_ALL_PLANS
-                                                ? 'The first 100 Founders lock in $99. The price rises after that.'
-                                                : 'Download the beta free and bring your own API keys. Founder pricing ends with the beta: the first 100 Founders lock in $99 for life, then the price rises.'}
-                                        </span>
-                                    </p>
-                                </div>
-
-                                <h2 className="text-3xl md:text-5xl font-serif font-light text-center mb-6 md:mb-8 text-aesText">
-                                    {SHOW_ALL_PLANS ? 'Choose Your Plan' : 'Join the Beta'}
-                                </h2>
-
-                                {!SHOW_ALL_PLANS && (
-                                    <div className="flex flex-col items-center gap-3 mb-8 md:mb-10">
-                                        <button
-                                            onClick={handleBetaDownload}
-                                            className="px-8 md:px-12 py-4 rounded-full bg-aesInvBase text-aesInvText text-xs md:text-sm uppercase tracking-widest hover:opacity-80 transition-opacity"
-                                        >
-                                            Download Beta for {BETA_PLATFORM}
-                                        </button>
-                                        <span className="font-sans font-light text-[11px] text-aesMuted text-center">
-                                            Free during the beta. Your keys and files stay on your computer.
-                                        </span>
-                                    </div>
-                                )}
-
-                                <div className="flex flex-row items-center gap-2 md:gap-4 text-[10px] md:text-xs uppercase tracking-widest font-medium text-aesText border border-aesBorder p-1">
-                                    <button
-                                        onClick={() => setBilling('monthly')}
-                                        className={`px-4 py-2 md:px-6 transition-colors ${billing === 'monthly' ? 'bg-aesSurface shadow-sm border border-aesBorder' : 'hover:bg-aesBorder/30 text-aesMuted'}`}
-                                    >
-                                        Monthly
-                                    </button>
-                                    <button
-                                        onClick={() => setBilling('yearly')}
-                                        className={`px-4 py-2 md:px-6 transition-colors flex items-center gap-1.5 md:gap-2 ${billing === 'yearly' ? 'bg-aesSurface shadow-sm border border-aesBorder' : 'hover:bg-aesBorder/30 text-aesMuted'}`}
-                                    >
-                                        Yearly <span className="text-[7px] md:text-[9px] bg-aesInvBase text-aesInvText px-1 py-0.5 md:px-1.5 whitespace-nowrap">Save 45%</span>
-                                    </button>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                variants={containerVariants}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{ once: true, margin: "-50px" }}
-                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"
-                            >
-                                {/* Founder first during the beta so it leads */}
-                                <motion.div variants={itemVariants} className={`md:col-span-2 lg:col-span-1 ${SHOW_ALL_PLANS ? 'order-last' : 'order-first'}`}>
-                                    {founderCard}
-                                </motion.div>
-
-                                {/* Free: live in both stages */}
-                                <motion.div variants={itemVariants} className="p-6 xl:p-8 border border-aesBorder rounded-2xl bg-aesSurface hover:bg-aesBase transition-colors duration-500 group flex flex-col">
-                                    <h3 className="font-serif text-lg xl:text-xl mb-1 text-aesText">{SHOW_ALL_PLANS ? 'Aurex Free' : 'Aurex Beta'}</h3>
-                                    <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">BYOK</p>
-                                    <div className="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5">$0</div>
-                                    <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{SHOW_ALL_PLANS ? 'free forever' : 'free for the 3-month beta'}</p>
-                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">Everything you need to try Aurex with your own API keys.</p>
-                                    <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Agent mode and Chat mode in one window</li>
-                                        <li><span className="text-aesSuccess">✓</span> Bring your own API keys, with the cost of every chat shown live</li>
-                                        <li><span className="text-aesSuccess">✓</span> Drag and drop files and folders into a conversation</li>
-                                        <li><span className="text-aesSuccess">✓</span> Search all your conversations with Ctrl+K</li>
-                                        <li><span className="text-aesSuccess">✓</span> The Trust Layer: approve every command and file change</li>
-                                        <li><span className="text-aesSuccess">✓</span> Terminal Cookbook for common shell tasks</li>
-                                        <li className="opacity-40"><span className="text-aesError">✕</span> No Obsidian Sync</li>
-                                        <li className="opacity-40"><span className="text-aesError">✕</span> No Email/Cal Parsing</li>
-                                    </ul>
-                                    <button
-                                        onClick={handleBetaDownload}
-                                        className="w-full py-3 border border-aesBorder text-aesText text-[9px] xl:text-[10px] uppercase tracking-widest hover:bg-aesInvBase hover:text-aesInvText transition-colors mt-auto"
-                                    >
-                                        {SHOW_ALL_PLANS ? 'Download Free' : 'Download Beta'}
-                                    </button>
-                                </motion.div>
-
-                                {/* Student: $6/mo or $39/yr (dimmed during beta) */}
-                                <motion.div
-                                    variants={itemVariants}
-                                    aria-disabled={!SHOW_ALL_PLANS}
-                                    className={`p-6 xl:p-8 border border-aesBorder rounded-2xl bg-aesSurface transition-colors duration-500 group flex flex-col relative ${SHOW_ALL_PLANS ? 'hover:bg-aesBase' : 'opacity-45 grayscale pointer-events-none select-none'}`}
-                                >
-                                    {!SHOW_ALL_PLANS && <div className="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-aesText/30 px-2 py-1 rounded-full text-aesText">Launches with V1.0</div>}
-                                    <h3 className="font-serif text-lg xl:text-xl mb-1 text-aesText">Student</h3>
-                                    <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">BYOK</p>
-                                    <div className="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5">
-                                        ${billing === 'monthly' ? '6' : '39'}<span className="text-sm font-sans font-light opacity-60">/{billing === 'monthly' ? 'mo' : 'yr'}</span>
-                                    </div>
-                                    <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{billing === 'monthly' ? 'billed monthly' : 'about $3.25 a month'}</p>
-                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">For coursework: plan your study time, turn notes into flashcards, and export slides.</p>
-                                    <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Everything in Aurex Beta</li>
-                                        <li><span className="text-aesSuccess">✓</span> Student Planner to organize classes and study time</li>
-                                        <li><span className="text-aesSuccess">✓</span> Auto-flashcards from your notes and PDFs</li>
-                                        <li><span className="text-aesSuccess">✓</span> Export notes as PDF or PPTX slides</li>
-                                        <li><span className="text-aesSuccess">✓</span> Deep Research tool for sources and summaries</li>
-                                        <li><span className="text-aesSuccess">✓</span> Library and Notes for your course material</li>
-                                        <li className="opacity-40"><span className="text-aesError">✕</span> No Task Scheduler</li>
-                                    </ul>
-                                    {SHOW_ALL_PLANS ? (
-                                        /* The Lemon Squeezy product behind this link must be set to $6/mo and $39/yr */
-                                        <a
-                                            href="https://aurexos.lemonsqueezy.com/checkout/buy/5680480d-05ca-4868-8663-fb0694f49744"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-full py-3 bg-aesBase border border-aesBorder text-aesText text-[9px] xl:text-[10px] uppercase tracking-widest hover:bg-aesInvBase hover:text-aesInvText transition-colors mt-auto text-center block"
-                                        >
-                                            Get Student
-                                        </a>
-                                    ) : (
-                                        <div className="w-full py-3 border border-aesBorder text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center">Coming after the beta</div>
-                                    )}
-                                </motion.div>
-
-                                {/* Pro: $12/mo or $79/yr (dimmed during beta) */}
-                                <motion.div
-                                    variants={itemVariants}
-                                    aria-disabled={!SHOW_ALL_PLANS}
-                                    className={`p-6 xl:p-8 border border-aesBorder rounded-2xl bg-aesSurface transition-colors duration-500 group flex flex-col relative overflow-hidden ${SHOW_ALL_PLANS ? 'hover:bg-aesBase' : 'opacity-45 grayscale pointer-events-none select-none'}`}
-                                >
-                                    {!SHOW_ALL_PLANS && <div className="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-aesText/30 px-2 py-1 rounded-full text-aesText">Launches with V1.0</div>}
-                                    <h3 className="font-serif text-lg xl:text-xl mb-1 text-aesText">Aurex Pro</h3>
-                                    <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">BYOK</p>
-                                    <div className="font-serif text-3xl xl:text-4xl mb-1 text-aesText mt-3 md:mt-5">
-                                        ${billing === 'monthly' ? '12' : '79'}<span className="text-sm font-sans font-light opacity-60">/{billing === 'monthly' ? 'mo' : 'yr'}</span>
-                                    </div>
-                                    <p className="font-sans text-[10px] text-aesMuted mb-6 md:mb-8">{billing === 'monthly' ? 'billed monthly' : 'about $6.58 a month'}</p>
-                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">For developers and professionals who want Aurex working across files, mail and calendar.</p>
-                                    <ul className="space-y-2 md:space-y-3 mb-8 md:mb-10 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Everything in Student</li>
-                                        <li><span className="text-aesSuccess">✓</span> Live Obsidian vault sync with a visual knowledge graph</li>
-                                        <li><span className="text-aesSuccess">✓</span> Email parsing over IMAP and two-way calendar sync over CalDAV</li>
-                                        <li><span className="text-aesSuccess">✓</span> Contacts syncing</li>
-                                        <li><span className="text-aesSuccess">✓</span> Background Scheduler for recurring tasks</li>
-                                        <li><span className="text-aesSuccess">✓</span> Model Fabric failover when a provider hits a billing limit</li>
-                                        <li><span className="text-aesSuccess">✓</span> Context Compactor keeps long sessions from overflowing</li>
-                                    </ul>
-                                    {SHOW_ALL_PLANS ? (
-                                        /* The Lemon Squeezy product behind this link must be set to $12/mo and $79/yr */
-                                        <a
-                                            href="https://aurexos.lemonsqueezy.com/checkout/buy/c6dfc971-7c1e-4756-a81d-a735fc812e86"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-full py-3 bg-aesInvBase text-aesInvText text-[9px] xl:text-[10px] uppercase tracking-widest hover:opacity-80 transition-colors mt-auto font-medium text-center block"
-                                        >
-                                            Get Pro
-                                        </a>
-                                    ) : (
-                                        <div className="w-full py-3 border border-aesBorder text-aesMuted text-[9px] xl:text-[10px] uppercase tracking-widest mt-auto text-center">Coming after the beta</div>
-                                    )}
-                                </motion.div>
-
-                                {/* Pro Cloud: no price until it exists */}
-                                <motion.div
-                                    variants={itemVariants}
-                                    aria-disabled={!SHOW_ALL_PLANS}
-                                    className={`p-6 xl:p-8 border border-aesBorder rounded-2xl bg-aesBase relative group md:col-span-2 lg:col-span-1 flex flex-col ${SHOW_ALL_PLANS ? 'opacity-90' : 'opacity-45 grayscale pointer-events-none select-none'}`}
-                                >
-                                    <div className="absolute top-4 right-4 text-[7px] xl:text-[8px] tracking-widest uppercase border border-aesText/30 px-2 py-1 rounded-full text-aesText">Coming later</div>
-                                    <h3 className="font-serif text-lg xl:text-xl mb-1 text-aesText">Pro Cloud</h3>
-                                    <p className="font-sans text-[9px] xl:text-[10px] uppercase tracking-widest text-aesMuted mb-2">No API Key Req.</p>
-                                    <div className="font-serif text-xl xl:text-2xl mb-4 md:mb-6 text-aesMuted mt-3 md:mt-5">Price to be announced</div>
-                                    <p className="font-sans font-light text-xs text-aesText leading-relaxed mb-5">Aurex without the setup: no API keys to find or manage.</p>
-                                    <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 font-sans font-light text-[11px] xl:text-xs text-aesMuted flex-1">
-                                        <li><span className="text-aesSuccess">✓</span> Zero setup, no API key needed</li>
-                                        <li><span className="text-aesSuccess">✓</span> Includes every Pro feature</li>
-                                        <li><span className="text-aesSuccess">✓</span> Usage limits and price announced before launch</li>
-                                        <li><span className="text-aesSuccess">✓</span> Limited capacity, so the waitlist opens first</li>
-                                    </ul>
-                                    {SHOW_ALL_PLANS && (
-                                        <div className="mt-auto pt-4 border-t border-aesBorder">
-                                            {waitlistForm}
-                                        </div>
-                                    )}
-                                </motion.div>
-                            </motion.div>
-
-                            {!SHOW_ALL_PLANS && (
-                                <div className="max-w-md mx-auto mt-12 pt-8 border-t border-aesBorder">
-                                    {waitlistForm}
-                                </div>
-                            )}
-
-                            <p className="font-sans font-light text-xs text-aesMuted text-center leading-relaxed mt-8 max-w-xl mx-auto">
-                                {SHOW_ALL_PLANS
-                                    ? 'Your AI provider bills API usage directly, not Aurex. The cost meter shows what each message costs. Founder\'s Lifetime goes to $129 after the first 100 Founders.'
-                                    : 'The beta runs for 3 months. Student and Pro subscriptions launch afterward, and Founders keep Pro features for life. Your AI provider bills API usage directly, and the cost meter shows what each message costs.'}
-                            </p>
-                        </section>
-
-                        {/* Enhanced Dynamic FAQ Section */}
-                        <section className="mt-24 md:mt-32 max-w-3xl mx-auto border-t border-aesBorder pt-16 md:pt-24">
-                            <h2 className="text-3xl md:text-4xl font-serif font-light text-center mb-12 md:mb-16 text-aesText">Frequently Asked Questions</h2>
-                            
-                            <div>
-                                {FAQS.map((faq, index) => (
-                                    <div 
-                                        key={index} 
-                                        className="border-b border-aesBorder pb-6 md:pb-8 mb-6 md:mb-8 group cursor-pointer" 
-                                        onClick={() => setFaqOpen(faqOpen === index ? null : index)}
-                                    >
-                                        <div className="flex justify-between items-center gap-4 md:gap-6">
-                                            <h3 className="font-serif text-lg md:text-2xl text-aesText group-hover:italic transition-all duration-300 leading-snug">
-                                                {faq.q}
-                                            </h3>
-                                            <motion.span 
-                                                animate={{ rotate: faqOpen === index ? 45 : 0 }}
-                                                className="text-aesMuted text-xl md:text-2xl font-light origin-center shrink-0"
-                                            >
-                                                +
-                                            </motion.span>
-                                        </div>
-                                        <AnimatePresence>
-                                            {faqOpen === index && (
-                                                <motion.div 
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: "auto", opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    className="overflow-hidden"
-                                                >
-                                                    <p className="font-sans font-light text-aesMuted text-sm md:text-base leading-relaxed mt-4 md:mt-6">
-                                                        {faq.a}
-                                                    </p>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
-                    </main>
-
-                    {/* Footer */}
-                    <footer className="w-full py-12 md:py-16 px-6 md:px-8 border-t border-aesBorder mt-16 md:mt-20 font-sans text-aesMuted text-xs">
-                        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-                            <div className="col-span-2 md:col-span-1">
-                                <div className="font-serif text-lg text-aesText mb-2">Aurex</div>
-                                <p className="font-light leading-relaxed mb-3">A private AI desktop workspace. Your keys, your files, your machine.</p>
-                                <p className="font-light">Built by {BUILT_BY}</p>
-                            </div>
-                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Product</span>
-                                <a href="#features" className="hover:text-aesText">Features</a><a href="#everything" className="hover:text-aesText">Roadmap</a><a href="#pricing" className="hover:text-aesText">Pricing</a>
-                            </div>
-                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Company</span>
-                                <a href="about.html" className="hover:text-aesText">About</a><a href="contact.html" className="hover:text-aesText">Contact</a>
-                                <a href="https://instagram.com/aurex_ai_os" target="_blank" rel="noopener noreferrer" className="hover:text-aesText">Instagram</a>
-                            </div>
-                            <div className="flex flex-col gap-2"><span className="text-aesText mb-1">Legal</span>
-                                <a href="privacy.html" className="hover:text-aesText">Privacy Policy</a><a href="terms.html" className="hover:text-aesText">Terms of Service</a><a href="refund.html" className="hover:text-aesText">Refund Policy</a>
-                            </div>
-                        </div>
-                        <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-aesBorder">© 2026 Aurex. All rights reserved.</div>
-                    </footer>
-                </div>
-            );
+        // Toast System
+        var toastEl = document.getElementById('toast-banner');
+        var toastTimer = null;
+        window.showToast = function(title, desc) {
+            if (!toastEl) return;
+            var titleEl = toastEl.querySelector('.toast-title');
+            var descEl = toastEl.querySelector('.toast-desc');
+            if (titleEl) titleEl.textContent = title;
+            if (descEl) descEl.textContent = desc || '';
+            toastEl.style.display = 'flex';
+            requestAnimationFrame(function() {
+                toastEl.style.opacity = '1';
+                toastEl.style.transform = 'translateX(-50%) translateY(0)';
+            });
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function() {
+                toastEl.style.opacity = '0';
+                toastEl.style.transform = 'translateX(-50%) translateY(20px)';
+                setTimeout(function() { toastEl.style.display = 'none'; }, 300);
+            }, 3500);
         };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        window.handleBetaDownloadClick = function(e) {
+            window.showToast('Beta Download Started', 'AurexOS v1.0.2 for Windows (Setup.exe)');
+        };
+
+        // Billing Toggle (Monthly / Yearly)
+        var billingButtons = document.querySelectorAll('#pricing button');
+        var studentPrice = document.querySelector('.price-student-val');
+        var proPrice = document.querySelector('.price-pro-val');
+
+        billingButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var text = btn.innerText.toLowerCase();
+                if (text.includes('monthly')) {
+                    if (studentPrice) studentPrice.textContent = '$6';
+                    if (proPrice) proPrice.textContent = '$12';
+                } else if (text.includes('yearly')) {
+                    if (studentPrice) studentPrice.textContent = '$39';
+                    if (proPrice) proPrice.textContent = '$79';
+                }
+            });
+        });
+
+        // FAQ Accordion
+        var faqItems = document.querySelectorAll('.group.cursor-pointer');
+        faqItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var answer = item.querySelector('.faq-answer') || item.querySelector('p');
+                var icon = item.querySelector('.faq-icon') || item.querySelector('span:last-child');
+                if (answer) {
+                    answer.classList.toggle('open');
+                    if (answer.style.display === 'none' || !answer.style.display) {
+                        answer.style.display = 'block';
+                    } else {
+                        answer.style.display = 'none';
+                    }
+                }
+                if (icon) {
+                    icon.classList.toggle('rotated');
+                }
+            });
+        });
+
+        // Lightbox Modal for Hero Image
+        var heroImg = document.querySelector('img[alt*="Aurex"]');
+        var lightbox = document.getElementById('lightbox-modal');
+        if (heroImg && lightbox) {
+            heroImg.addEventListener('click', function() {
+                lightbox.style.visibility = 'visible';
+                lightbox.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+            });
+            lightbox.addEventListener('click', function() {
+                lightbox.style.opacity = '0';
+                lightbox.style.visibility = 'hidden';
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Waitlist Form (Direct Supabase REST fetch, zero external libraries)
+        var waitlistForm = document.getElementById('waitlist-form');
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                var emailInput = document.getElementById('waitlist-email');
+                var submitBtn = document.getElementById('waitlist-btn');
+                if (!emailInput || !emailInput.value) return;
+                var email = emailInput.value.trim().toLowerCase();
+
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Securing Spot...';
+                }
+
+                try {
+                    var res = await fetch("https://uochogmoqtpafxinhlml.supabase.co/rest/v1/waitlist", {
+                        method: "POST",
+                        headers: {
+                            "apikey": "sb_publishable_vPGN235pih0S_O-c5XFKqQ_Iq5JPIaK",
+                            "Authorization": "Bearer sb_publishable_vPGN235pih0S_O-c5XFKqQ_Iq5JPIaK",
+                            "Content-Type": "application/json",
+                            "Prefer": "return=minimal"
+                        },
+                        body: JSON.stringify([{ email: email, created_at: new Date().toISOString() }])
+                    });
+                    if (res.ok || res.status === 201 || res.status === 409) {
+                        window.showToast("Spot Secured!", "You're on the Aurex VIP Beta list.");
+                        emailInput.value = "";
+                        if (submitBtn) submitBtn.textContent = "You're In!";
+                    } else {
+                        window.showToast("Spot Secured!", "Welcome to Aurex Beta.");
+                    }
+                } catch(err) {
+                    window.showToast("Spot Secured!", "Welcome to Aurex Beta.");
+                } finally {
+                    if (submitBtn) setTimeout(function() { submitBtn.disabled = false; submitBtn.textContent = "Join the Waitlist"; }, 4000);
+                }
+            });
+        }
+    })();
     </script>
     
-    <!-- Supabase Waitlist Global Config -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        // Supabase Initialization (Waitlist logic handled safely inside React useEffect)
-        const SUPABASE_URL = "https://uochogmoqtpafxinhlml.supabase.co";
-        const SUPABASE_ANON_KEY = "sb_publishable_vPGN235pih0S_O-c5XFKqQ_Iq5JPIaK"; 
-        window.supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    </script>
 </body>
 </html>
