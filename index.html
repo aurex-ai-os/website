@@ -233,15 +233,14 @@
                 <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Direct founder priority support channel</span></li>
                 <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>30-day money-back guarantee</span></li>
             </ul>
-            <a
+            <button
+                type="button"
                 id="btn-dodo-founder"
-                href="https://test.checkout.dodopayments.com/buy/pdt_0NpiRHsR0fAbO5KFQxrVl?quantity=1"
-                target="_blank"
-                onclick="window.triggerDodoCheckout('founder')"
-                class="w-full py-3.5 border border-aesBorder text-aesText hover:bg-aesInvBase hover:text-aesInvText text-[10px] xl:text-xs uppercase tracking-widest mt-auto text-center rounded-lg transition-colors font-medium block"
+                onclick="window.triggerDodoCheckout('founder', event)"
+                class="w-full py-3.5 border border-aesBorder text-aesText hover:bg-aesInvBase hover:text-aesInvText text-[10px] xl:text-xs uppercase tracking-widest mt-auto text-center rounded-lg transition-colors font-medium block cursor-pointer"
             >
                 Get Founder's Lifetime ($99)
-            </a>
+            </button>
         </div>
 
         <!-- 2. Aurex Pro (Featured) -->
@@ -279,15 +278,14 @@
                 <li class="flex items-center gap-2"><span class="text-aesSuccess font-bold">✓</span> <span>Terminal Cookbook &amp; secure shell execution</span></li>
             </ul>
 
-            <a
+            <button
+                type="button"
                 id="btn-dodo-pro"
-                href="https://test.checkout.dodopayments.com/buy/pdt_0NpiRHsR0fAbO5KFQxrVl?quantity=1"
-                target="_blank"
-                onclick="window.triggerDodoCheckout('pro_monthly')"
+                onclick="window.triggerDodoCheckout('pro_monthly', event)"
                 class="w-full py-4 btn-download-glow text-white text-xs uppercase tracking-widest font-bold text-center block rounded-xl shadow-lg transition-all mt-auto cursor-pointer"
             >
                 Get Aurex Pro ($6/mo)
-            </a>
+            </button>
         </div>
 
         <!-- 3. Pro Cloud -->
@@ -395,6 +393,42 @@
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" style="visibility:hidden; opacity:0;" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-2 md:p-6 cursor-zoom-out">
         <img src="./aurex_hero_1600.webp" width="1600" height="865" alt="Aurex Interface Fullscreen" class="w-auto h-auto max-w-full max-h-full rounded-sm shadow-2xl border border-white/10" />
+    </div>
+
+    <!-- Aurex In-Page Checkout Modal (100% In-Page, Zero Redirects) -->
+    <div id="aurex-checkout-modal" style="display:none; opacity:0; pointer-events:none;" class="fixed inset-0 z-[9999999] bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 transition-opacity duration-300">
+        <div class="relative w-full max-w-xl md:max-w-2xl bg-aesSurface rounded-2xl border border-aesBorder shadow-2xl flex flex-col overflow-hidden max-h-[94vh] transition-transform duration-300">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-aesBorder bg-aesBase/70">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#4F7CFF] animate-pulse"></span>
+                    <span class="font-serif text-sm md:text-base font-medium text-aesText">Aurex Secure Checkout</span>
+                    <span class="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded bg-aesBorder text-aesMuted font-mono">Dodo Payments MoR</span>
+                </div>
+                <button type="button" id="aurex-checkout-close-btn" class="text-aesMuted hover:text-aesText p-1.5 rounded-lg hover:bg-aesBorder/40 transition-colors text-lg leading-none cursor-pointer flex items-center justify-center w-8 h-8" title="Close Checkout (Esc)">✕</button>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="aurex-checkout-loader" class="absolute inset-0 top-12 bg-aesSurface flex flex-col items-center justify-center gap-3 z-10 transition-opacity duration-200">
+                <div class="w-9 h-9 border-2 border-[#4F7CFF] border-t-transparent rounded-full animate-spin"></div>
+                <p class="font-sans text-xs text-aesMuted font-medium">Securing introductory checkout via Dodo Payments...</p>
+                <span class="text-[10px] text-aesMuted/70 font-mono">256-bit SSL Encrypted</span>
+            </div>
+
+            <!-- Embedded Checkout Frame Container -->
+            <div id="dodo-inline-checkout" class="w-full flex-1 flex flex-col bg-aesSurface relative min-h-[640px] md:min-h-[700px] overflow-hidden">
+                <iframe id="aurex-checkout-iframe" class="w-full flex-1 min-h-[640px] md:min-h-[700px] border-none bg-transparent" allow="payment keyboard-map *"></iframe>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-5 py-2.5 border-t border-aesBorder bg-aesBase/50 flex items-center justify-between text-[11px] text-aesMuted">
+                <div class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-aesSuccess shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    <span class="truncate">Merchant of Record: Dodo Payments Inc.</span>
+                </div>
+                <button type="button" id="aurex-checkout-cancel-btn" class="hover:text-aesText text-aesMuted underline transition-colors cursor-pointer shrink-0 ml-2">Cancel &amp; return</button>
+            </div>
+        </div>
     </div>
     
 
@@ -559,56 +593,120 @@
         updatePromoUI();
 
         // ========================================================
-        // OPTION A: 1-CLICK AUTO-APPLIED DODO CHECKOUT SESSION
+        // 100% IN-PAGE DODO CHECKOUT MODAL SYSTEM (ZERO REDIRECTS)
         // ========================================================
         PROMO_CONFIG.apiKey = 'oVOBExzIChH-BjMd.WeUGtD4QWBJQeUdaWF37_BGVzqrdKH1NJ9yu9JUskLinxVfc';
 
-        function launchCheckoutUrl(url) {
-            if (window.DodoPaymentsCheckout && window.DodoPaymentsCheckout.DodoPayments && window.DodoPaymentsCheckout.DodoPayments.Checkout) {
-                try {
-                    window.DodoPaymentsCheckout.DodoPayments.Checkout.open({ checkoutUrl: url });
-                    return;
-                } catch(e) {
-                    console.log("Dodo overlay error:", e);
+        window.openCheckoutModal = function(url) {
+            var modal = document.getElementById('aurex-checkout-modal');
+            var iframe = document.getElementById('aurex-checkout-iframe');
+            var loader = document.getElementById('aurex-checkout-loader');
+            if (!modal || !iframe) return;
+
+            // Use the clean /overlay/session/ path for seamless embed presentation
+            var targetUrl = url;
+            if (targetUrl.indexOf('/session/') !== -1 && targetUrl.indexOf('/overlay/session/') === -1) {
+                targetUrl = targetUrl.replace('/session/', '/overlay/session/');
+            }
+
+            if (loader) {
+                loader.style.display = 'flex';
+                loader.style.opacity = '1';
+            }
+
+            iframe.src = targetUrl;
+            iframe.onload = function() {
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(function() { loader.style.display = 'none'; }, 200);
+                }
+            };
+
+            modal.style.display = 'flex';
+            requestAnimationFrame(function() {
+                modal.style.opacity = '1';
+                modal.style.pointerEvents = 'auto';
+            });
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeCheckoutModal = function() {
+            var modal = document.getElementById('aurex-checkout-modal');
+            var iframe = document.getElementById('aurex-checkout-iframe');
+            var loader = document.getElementById('aurex-checkout-loader');
+            if (!modal) return;
+
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            setTimeout(function() {
+                modal.style.display = 'none';
+                if (iframe) iframe.src = 'about:blank';
+                if (loader) {
+                    loader.style.display = 'flex';
+                    loader.style.opacity = '1';
+                }
+            }, 250);
+            document.body.style.overflow = '';
+        };
+
+        // Modal event listeners (Close button, Cancel button, backdrop click, Escape key)
+        var checkoutModalEl = document.getElementById('aurex-checkout-modal');
+        var checkoutCloseBtn = document.getElementById('aurex-checkout-close-btn');
+        var checkoutCancelBtn = document.getElementById('aurex-checkout-cancel-btn');
+
+        if (checkoutCloseBtn) checkoutCloseBtn.addEventListener('click', window.closeCheckoutModal);
+        if (checkoutCancelBtn) checkoutCancelBtn.addEventListener('click', window.closeCheckoutModal);
+        if (checkoutModalEl) {
+            checkoutModalEl.addEventListener('click', function(e) {
+                if (e.target === checkoutModalEl) {
+                    window.closeCheckoutModal();
+                }
+            });
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && checkoutModalEl && checkoutModalEl.style.display === 'flex') {
+                window.closeCheckoutModal();
+            }
+        });
+
+        // Listen for Dodo Payments iframe events
+        window.addEventListener('message', function(event) {
+            if (!event || !event.data) return;
+            var data = event.data;
+            var eventType = data.event_type || data.type;
+
+            if (eventType === 'checkout.closed') {
+                window.closeCheckoutModal();
+            } else if (eventType === 'payment.succeeded' || eventType === 'checkout.completed') {
+                window.location.href = 'https://aurex-ai.online/success.html';
+            } else if (eventType === 'checkout.redirect') {
+                var redirectUrl = (data.data && data.data.message && data.data.message.redirect_to) || (data.data && data.data.redirect_to);
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
                 }
             }
-            window.location.href = url;
+        });
+
+        function launchCheckoutUrl(url) {
+            // Display immediately in the seamless in-page checkout modal
+            window.openCheckoutModal(url);
         }
 
-        window.triggerDodoCheckout = async function(plan) {
+        window.triggerDodoCheckout = async function(plan, e) {
+            if (e && e.preventDefault) e.preventDefault();
             plan = plan || (currentBillingMode === 'yearly' ? 'pro_yearly' : 'pro_monthly');
             var btn = (plan === 'founder') ? document.getElementById('btn-dodo-founder') : document.getElementById('btn-dodo-pro');
             var originalText = btn ? btn.textContent : '';
 
             if (plan === 'founder') {
-                window.showToast("Founder's Lifetime ($99)", "Launching checkout...");
+                window.showToast("Founder's Lifetime ($99)", "Securing early adopter spot...");
             } else if (btn) {
                 btn.textContent = 'Preparing Checkout...';
                 btn.style.opacity = '0.7';
                 btn.style.pointerEvents = 'none';
             }
 
-            // Tier 1: Try backend Supabase edge function
-            try {
-                var res = await fetch(PROMO_CONFIG.checkoutEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        product_id: PROMO_CONFIG.productId,
-                        plan: plan
-                    })
-                });
-
-                if (res.ok) {
-                    var data = await res.json();
-                    if (data && data.checkout_url) {
-                        launchCheckoutUrl(data.checkout_url);
-                        return;
-                    }
-                }
-            } catch(e) {}
-
-            // Tier 2: Instant direct session generation via write-enabled Dodo API
+            // Create dynamic checkout session with 50% discount pre-attached
             try {
                 var active = isPromoActive();
                 var dodoPayload = {
@@ -633,11 +731,14 @@
                     var dodoData = await dodoRes.json();
                     if (dodoData && dodoData.checkout_url) {
                         launchCheckoutUrl(dodoData.checkout_url);
-                        return;
+                        return false;
                     }
                 }
+                throw new Error("Checkout session error");
             } catch(err) {
-                console.warn("Direct checkout session error, falling back to direct link:", err);
+                console.warn("Direct checkout session warning, opening modal fallback:", err);
+                // Open fallback in the modal — NEVER redirect the page away
+                window.openCheckoutModal(PROMO_CONFIG.directFallbackLink);
             } finally {
                 if (btn) {
                     btn.textContent = originalText;
@@ -645,20 +746,8 @@
                     btn.style.pointerEvents = 'auto';
                 }
             }
-
-            // Tier 3: Direct hosted link fallback
-            window.location.href = PROMO_CONFIG.directFallbackLink;
+            return false;
         };
-
-        // Initialize Dodo overlay if SDK is loaded
-        if (window.DodoPaymentsCheckout && window.DodoPaymentsCheckout.DodoPayments) {
-            try {
-                window.DodoPaymentsCheckout.DodoPayments.Initialize({
-                    mode: 'test',
-                    displayType: 'overlay'
-                });
-            } catch(e) {}
-        }
 
         // FAQ Accordion
         var faqItems = document.querySelectorAll('.faq-item');
